@@ -1,7 +1,7 @@
 import React from 'react';
 import { List } from 'antd-mobile';
 import { 
-    BugFilled, HeartOutlined, ShoppingCartOutlined, UserOutlined, AppstoreOutlined, TagOutlined,
+    BugOutlined, HeartOutlined, ShoppingCartOutlined, UserOutlined, AppstoreOutlined, TagOutlined,
     GiftOutlined, PlusOutlined, FontSizeOutlined, LogoutOutlined
 } from '@ant-design/icons';
 
@@ -11,7 +11,7 @@ const DrawerSeperateLink = (props) => {
     const {fieldName, iconName} = props;
     const showIcon = (fieldName: String) => {
         if(fieldName === 'Report Bug') {
-            return <BugFilled />
+            return <BugOutlined />
         } else if(fieldName === 'My Account') {
             return <UserOutlined />;
         } else if(fieldName === 'My Wishlist') {

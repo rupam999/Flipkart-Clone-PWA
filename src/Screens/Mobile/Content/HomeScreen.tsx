@@ -3,6 +3,8 @@ import { Drawer } from 'antd-mobile';
 import { HomeScreenHeaer, SearchBoxSecondHeader } from '../Header';
 import WindowDimensions from '../../../components/WindowDimensions';
 import DrawerContent from './components/DrawerContent';
+import HomeScreenTopBar from './components/HomeScreenTopBar';
+import HomeScreenSlide from './components/HomeScreenSlide';
 
 export const HomeScreen = () => {
     const [menu, toggle] = useState(false);
@@ -36,7 +38,9 @@ export const HomeScreen = () => {
                 >
                 <HomeScreenHeaer menu={menu} toggle={toggle} />
                 <SearchBoxSecondHeader />
-                <div style={{paddingTop: 100}}>
+                <div style={{paddingTop: 101}}>
+                    {/* <HomeScreenTopBar /> */}
+                    <HomeScreenSlide />
                     <p>Home Screen Content</p>
                 </div>
             </Drawer>
