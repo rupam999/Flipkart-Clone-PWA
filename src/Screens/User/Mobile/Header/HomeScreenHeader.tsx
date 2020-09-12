@@ -1,11 +1,14 @@
 import React from 'react';
 import { NavBar } from 'antd-mobile';
 import { MenuOutlined, ShoppingCartOutlined } from '@ant-design/icons';
-import Colors from '../../../utils/Colors';
+import { useHistory } from "react-router-dom";
+import { pathCheck } from "../../Helpers/Utilities";
+import Colors from '../../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 
 export const HomeScreenHeaer = (props) => {
-    const { menu, toggle } = props;
+    const { menu, toggle, pageHeading } = props;
+    const history = useHistory();
     const onOpenChange = () => {
         toggle(!menu);
     }
@@ -25,10 +28,15 @@ export const HomeScreenHeaer = (props) => {
                     <ShoppingCartOutlined 
                         key="0" 
                         className="homeScreenIconStyle" 
+                        onClick={() => {
+                            if (pathCheck(history, "/user/cart")) {
+                                history.push("/user/cart");
+                            }
+                        }}
                         style={{color: Colors.headerIconColor(), fontSize: 20}} 
                     />,
                 ]}
-                ><span style={{color: Colors.white(), fontWeight: 600}}>E-commerce</span>
+                ><span style={{color: Colors.white(), fontWeight: 600}}>{pageHeading}</span>
             </NavBar>
             
         </div>

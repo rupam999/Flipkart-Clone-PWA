@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { TabBar } from 'antd-mobile';
-import { HomeOutlined, UserOutlined } from '@ant-design/icons';
-import Colors from '../../../utils/Colors';
-import { HomeScreen } from '../Content';
+import { HomeOutlined, UserOutlined, BellOutlined, HeartOutlined } from '@ant-design/icons';
+import Colors from '../../../../utils/Colors';
+import { HomeScreen, Wishlist, Notification } from '../Content';
 import './bottomTabStyle.css';
 
 export const BottomTabBar = () => {
     const [selectedTab, setSelectedTab] = useState('homeTab');
-    const [hidden, setHidden] = useState(false);
 
     return (
       <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
@@ -34,29 +33,29 @@ export const BottomTabBar = () => {
             </TabBar.Item>
 
             <TabBar.Item
-                icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-                title="My"
-                key="my"
-                selected={selectedTab === 'redTab'}
+                icon={<HeartOutlined className="bottomTabIcon" />}
+                selectedIcon={<HeartOutlined className="bottomTabIcon" twoToneColor={Colors.darkBlue()} />}
+                title="Wishlist"
+                key="wishlist"
+                selected={selectedTab === 'wishlistTab'}
                 onPress={() => {
-                setSelectedTab('redTab');
+                setSelectedTab('wishlistTab');
                 }}
                 >
-                <p>Second Tab Content</p>
+                <Wishlist />
             </TabBar.Item>
             
             <TabBar.Item
-                icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-                title="My"
-                key="my"
-                selected={selectedTab === 'greenTab'}
+                icon={<BellOutlined className="bottomTabIcon" />}
+                selectedIcon={<BellOutlined className="bottomTabIcon" twoToneColor={Colors.darkBlue()} />}
+                title="Notification"
+                key="notification"
+                selected={selectedTab === 'notificationTab'}
                 onPress={() => {
-                setSelectedTab('greenTab');
+                setSelectedTab('notificationTab');
                 }}
                 >
-                <p>Third Tab Content</p>
+                <Notification />
             </TabBar.Item>
 
             <TabBar.Item

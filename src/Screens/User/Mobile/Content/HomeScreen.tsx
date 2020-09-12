@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import { NavBar, Icon, Drawer } from 'antd-mobile';
+import { Drawer } from 'antd-mobile';
 import { HomeScreenHeaer, SearchBoxSecondHeader } from '../Header';
-import WindowDimensions from '../../../components/WindowDimensions';
+import WindowDimensions from '../../../../components/WindowDimensions';
+import DrawerContent from './components/DrawerContent';
+import HomeScreenSlide from './components/HomeScreenSlide';
 
 export const HomeScreen = () => {
     const [menu, toggle] = useState(false);
@@ -12,8 +14,8 @@ export const HomeScreen = () => {
     }
     
     const sidebar = (
-        <div style={{ width: width*.80 }}>
-            <p>This is a Drawer</p>
+        <div style={{ width: width*.75, maxWidth: 290 }}>
+            <DrawerContent />
         </div>
     )
 
@@ -33,9 +35,11 @@ export const HomeScreen = () => {
                 open={menu}
                 onOpenChange={onOpenChange}
                 >
-                <HomeScreenHeaer menu={menu} toggle={toggle} />
+                <HomeScreenHeaer menu={menu} toggle={toggle} pageHeading="E-commerce" />
                 <SearchBoxSecondHeader />
-                <div style={{paddingTop: 100}}>
+                <div style={{paddingTop: 101}}>
+                    {/* <HomeScreenTopBar /> */}
+                    <HomeScreenSlide />
                     <p>Home Screen Content</p>
                 </div>
             </Drawer>

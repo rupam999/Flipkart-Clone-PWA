@@ -7,6 +7,9 @@ const Colors = {
     },
     white: (a = 1) => {
         return `rgba(255, 255, 255, ${a})`;
+    },
+    lightGray: (a = 1) => {
+        return `rgba(241, 241, 241, ${a})`;
     }
 }
 

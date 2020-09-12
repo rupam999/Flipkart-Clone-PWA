@@ -3,10 +3,11 @@ import 'antd/dist/antd.css';
 import 'antd-mobile/dist/antd-mobile.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import WindowDimensions from './components/WindowDimensions';
-import { BottomTabBar } from './Screens/Mobile/Navigation';
+import { Login } from './Screens/User/Mobile/SignInFlow';
+import { MainNavigation } from './Screens/User/Mobile/Navigation';
 
 const App = () => {
-  const {width, height} = WindowDimensions();
+  const {width} = WindowDimensions();
   if(width > 900){
     return (
       <Router>
@@ -14,10 +15,12 @@ const App = () => {
       </Router>
     );
   } else {
+    {/* Mobile Device Screen */}
     return (
       <Router>
-        {/* Mobile Device Screen */}
-        <BottomTabBar />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/login" component={Login} />
+        <Route path="/user" component={MainNavigation} />
       </Router>
     );
   }
