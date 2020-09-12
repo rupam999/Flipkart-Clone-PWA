@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { SearchHeader } from '../Header';
 import SortAndFilter from './components/SortAndFilter';
 import './components/css/SortAndFilter.css';
+import SeperateGrocery from './components/SeperteGrocery';
 
 export const SearchResult = () => {
     const location = useLocation();
@@ -16,10 +17,11 @@ export const SearchResult = () => {
     return(
         <div>
             <SearchHeader searchData={userQuery} />
-            <SortAndFilter />
-            <div style={{marginTop: 101}}>
-                <p>Search Result</p>
-                <p>You are Searching for {userQuery}</p>
+            <SortAndFilter /> 
+            <div style={{marginTop: 90}}>
+                <SeperateGrocery />
+                <SeperateGrocery />
+                <SeperateGrocery />
             </div>
         </div>
     );
