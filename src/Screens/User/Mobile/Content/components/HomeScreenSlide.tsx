@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Carousel } from 'antd-mobile';
 
 const HomeScreenSlide = () => {
-    const [data, setData] = useState(['1', '2']);
+    const [data, setData] = useState(['1']);
     const [imgHeight, setImageHeight] = useState<any>(150);
     const getBannerImage = (index: String) => {
         if(index === '1') {
             return `https://lh3.googleusercontent.com/ESowp9auDfIfT1WR9DreOJKj0VqpVhdioOXUeCtWt0q2mL5FR00PLlyiuffu6-XDAKsz8I_8D_Q8HewIOtyU9sGilzMY=w1000`;
-        } else if(index === '2') {
-            return `https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi8TPDP5LdzZxhYSNCqgkDeyedijJ6kXletQ&usqp=CAU`;
-        }
+        } 
+        // else if(index === '2') {
+        //     return `https://scontent.fymy1-2.fna.fbcdn.net/v/t1.0-9/s720x720/60819480_2382860748439645_3174593929735569408_o.jpg?_nc_cat=106&_nc_sid=8024bb&_nc_ohc=o3IJU7R4ae0AX-XxyvT&_nc_ht=scontent.fymy1-2.fna&_nc_tp=7&oh=599b9e75f7ade83e3ddad1511026e450&oe=5F5D432F`;
+        // }
     }
     return(
         <Carousel

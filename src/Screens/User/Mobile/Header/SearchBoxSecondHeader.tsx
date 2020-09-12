@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input } from 'antd';
 import { Toast } from 'antd-mobile';
 import { SearchOutlined } from '@ant-design/icons';
-import Colors from '../../../utils/Colors';
+import Colors from '../../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 
 export const SearchBoxSecondHeader = () => {

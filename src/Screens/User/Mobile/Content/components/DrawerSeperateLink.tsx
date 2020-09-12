@@ -4,11 +4,14 @@ import {
     BugOutlined, HeartOutlined, ShoppingCartOutlined, UserOutlined, AppstoreOutlined, TagOutlined,
     GiftOutlined, PlusOutlined, FontSizeOutlined, LogoutOutlined
 } from '@ant-design/icons';
+import { useHistory } from 'react-router-dom';
+import { pathCheck } from '../../../Helpers/Utilities';
 
 const Item = List.Item;
 
 const DrawerSeperateLink = (props) => {
-    const {fieldName, iconName} = props;
+    const {fieldName, callBack} = props;
+    const history = useHistory();
     const showIcon = (fieldName: String) => {
         if(fieldName === 'Report Bug') {
             return <BugOutlined />
@@ -38,7 +41,11 @@ const DrawerSeperateLink = (props) => {
                 thumb={showIcon(fieldName)}
                 arrow="empty"
                 align="middle"
-                onClick={() => {}}
+                onClick={() => {
+                    if (pathCheck(history, callBack)) {
+                        history.push(callBack);
+                    }
+                }}
                 className="listItem"
                 >
                 <span className="filedNamePara">{fieldName}</span>

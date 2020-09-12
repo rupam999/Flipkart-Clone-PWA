@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Drawer } from 'antd-mobile';
 import { HomeScreenHeaer, SearchBoxSecondHeader } from '../Header';
-import WindowDimensions from '../../../components/WindowDimensions';
+import WindowDimensions from '../../../../components/WindowDimensions';
 import DrawerContent from './components/DrawerContent';
 import HomeScreenTopBar from './components/HomeScreenTopBar';
 import HomeScreenSlide from './components/HomeScreenSlide';

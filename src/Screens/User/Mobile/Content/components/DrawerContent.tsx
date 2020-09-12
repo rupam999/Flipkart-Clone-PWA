@@ -16,7 +16,7 @@ const DrawerContent = () => {
                 </List>
                 <List>
                     <DrawerSeperateLink fieldName="My Orders" />
-                    <DrawerSeperateLink fieldName="My Cart" />
+                    <DrawerSeperateLink fieldName="My Cart" callBack="/user/cart" />
                     <DrawerSeperateLink fieldName="My Wishlist" />
                     <DrawerSeperateLink fieldName="My Account" />
                     <DrawerSeperateLink fieldName="Choose Language" />
