@@ -31,9 +31,9 @@ export const SearchHeader = (props) => {
                         key="0" 
                         className="homeScreenIconStyle marginRight20pt" 
                         onClick={() => {
-                            // if (pathCheck(history, "/user/cart")) {
-                            //     history.push("/user/cart");
-                            // }
+                            if (pathCheck(history, "/user/search/edit")) {
+                                history.push("/user/search/edit", {searchData: searchData});
+                            }
                         }}
                         style={{color: Colors.headerIconColor(), fontSize: 20}} 
                     />,

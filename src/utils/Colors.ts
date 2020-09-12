@@ -10,6 +10,12 @@ const Colors = {
     },
     lightGray: (a = 1) => {
         return `rgba(241, 241, 241, ${a})`;
+    },
+    black: (a = 1) => {
+        return `rgba(33, 29, 29, ${a})`;
+    },
+    green: (a = 1) => {
+        return `rgba(38, 165, 65, ${a});`;
     }
 }
 

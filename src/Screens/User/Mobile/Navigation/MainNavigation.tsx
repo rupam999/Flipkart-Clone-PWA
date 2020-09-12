@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import { BottomTabBar } from '../Navigation';
+import { BottomTabBar, SearchNavigation } from '../Navigation';
 import { 
     SearchResult, ShoppingCart 
 } from '../Content';
@@ -15,14 +15,13 @@ export const MainNavigation = () => {
                     render={() => <BottomTabBar />} 
                 />
                 <Route
-                    exact
                     path="/user/search"
-                    component={() => <SearchResult />}
+                    render={() => <SearchNavigation />}
                 />
                 <Route
                     exact
                     path="/user/cart"
-                    component={() => <ShoppingCart />}
+                    render={() => <ShoppingCart />}
                 />
             </Switch>
         </React.Fragment>
