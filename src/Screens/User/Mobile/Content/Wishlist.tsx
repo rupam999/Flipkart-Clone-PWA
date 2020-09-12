@@ -5,7 +5,7 @@ import WindowDimensions from '../../../../components/WindowDimensions';
 import DrawerContent from './components/DrawerContent';
 import HomeScreenSlide from './components/HomeScreenSlide';
 
-export const HomeScreen = () => {
+export const Wishlist = () => {
     const [menu, toggle] = useState(false);
     const {width} = WindowDimensions();
 
@@ -35,12 +35,9 @@ export const HomeScreen = () => {
                 open={menu}
                 onOpenChange={onOpenChange}
                 >
-                <HomeScreenHeaer menu={menu} toggle={toggle} pageHeading="E-commerce" />
-                <SearchBoxSecondHeader />
+                <HomeScreenHeaer menu={menu} toggle={toggle} pageHeading="My Wishlist" />
                 <div style={{paddingTop: 101}}>
-                    {/* <HomeScreenTopBar /> */}
-                    <HomeScreenSlide />
-                    <p>Home Screen Content</p>
+                    <p>Wishlist Screen Content</p>
                 </div>
             </Drawer>
 

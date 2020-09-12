@@ -7,7 +7,7 @@ import Colors from '../../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 
 export const HomeScreenHeaer = (props) => {
-    const { menu, toggle } = props;
+    const { menu, toggle, pageHeading } = props;
     const history = useHistory();
     const onOpenChange = () => {
         toggle(!menu);
@@ -36,7 +36,7 @@ export const HomeScreenHeaer = (props) => {
                         style={{color: Colors.headerIconColor(), fontSize: 20}} 
                     />,
                 ]}
-                ><span style={{color: Colors.white(), fontWeight: 600}}>E-commerce</span>
+                ><span style={{color: Colors.white(), fontWeight: 600}}>{pageHeading}</span>
             </NavBar>
             
         </div>

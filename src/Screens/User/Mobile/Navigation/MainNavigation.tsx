@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import { BottomTabBar } from '../Navigation';
-import { ShoppingCart } from '../Content';
+import { 
+    SearchResult, ShoppingCart 
+} from '../Content';
 
 export const MainNavigation = () => {
     return(
@@ -11,6 +13,11 @@ export const MainNavigation = () => {
                     exact 
                     path="/user" 
                     component={() => <BottomTabBar />} 
+                />
+                <Route
+                    exact
+                    path="/user/search"
+                    component={() => <SearchResult />}
                 />
                 <Route
                     exact

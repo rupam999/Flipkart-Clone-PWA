@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input } from 'antd';
 import { Toast } from 'antd-mobile';
 import { SearchOutlined } from '@ant-design/icons';
+import { useHistory } from 'react-router-dom';
+import { pathCheck } from '../../Helpers/Utilities';
 import Colors from '../../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 
 export const SearchBoxSecondHeader = () => {
+  const history = useHistory();
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -15,7 +18,9 @@ export const SearchBoxSecondHeader = () => {
     if(values.searchText === '' || values.searchText === undefined) {
       Toast.offline('Please enter a text !!!', 1);
     } else {
-      console.log('Success:', values);
+      if(pathCheck(history, "/user/search")){
+        history.push("/user/search", {searchData: values.searchText});
+      }
     }
   };
 
