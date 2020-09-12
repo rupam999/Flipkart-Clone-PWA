@@ -12,7 +12,7 @@ export const MainNavigation = () => {
                 <Route 
                     exact 
                     path="/user" 
-                    component={() => <BottomTabBar />} 
+                    render={() => <BottomTabBar />} 
                 />
                 <Route
                     exact
