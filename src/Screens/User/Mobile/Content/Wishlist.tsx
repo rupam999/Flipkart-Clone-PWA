@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import { Drawer } from 'antd-mobile';
-import { HomeScreenHeaer, SearchBoxSecondHeader } from '../Header';
+import { HomeScreenHeader } from '../Header';
 import WindowDimensions from '../../../../components/WindowDimensions';
 import DrawerContent from './components/DrawerContent';
-import HomeScreenSlide from './components/HomeScreenSlide';
 
 export const Wishlist = () => {
     const [menu, toggle] = useState(false);
@@ -35,7 +34,7 @@ export const Wishlist = () => {
                 open={menu}
                 onOpenChange={onOpenChange}
                 >
-                <HomeScreenHeaer menu={menu} toggle={toggle} pageHeading="My Wishlist" />
+                <HomeScreenHeader menu={menu} toggle={toggle} pageHeading="My Wishlist" />
                 <div style={{paddingTop: 101}}>
                     <p>Wishlist Screen Content</p>
                 </div>

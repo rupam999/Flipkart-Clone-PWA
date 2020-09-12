@@ -1,48 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FilterOutlined, SortDescendingOutlined } from '@ant-design/icons';
 import Colors from '../../../../../utils/Colors';
 import './css/SortAndFilter.css';
 
-const data = [
-  {
-    value: '1',
-    label: 'Food',
-  }, {
-    value: '2',
-    label: 'Supermarket',
-  },
-  {
-    value: '3',
-    label: 'Extra',
-    isLeaf: true,
-  },
-];
-
-const SortAndFilter = (props) => {
-    const { show, setShow, initData, setInitData } = props;
-
-    
-
-    
-
-    const handleClick = (e) => {
-        e.preventDefault(); // Fix event propagation on Android
-        setShow(!show);
-        // mock for async data loading
-        if (!initData) {
-          setTimeout(() => {
-            setInitData(data)
-          }, 500);
-        }
-    }
-
-    
-
-    
-
+const SortAndFilter = () => {
     return(
         <div className="mainFixedDiv" style={{backgroundColor: Colors.white()}}>
-            <div className="sortDiv" onClick={handleClick}>
+            <div className="sortDiv" onClick={() => alert('coming soon...')}>
                 <h3 className="sortText">
                     <span className="iconStyle">
                         {<SortDescendingOutlined />}
@@ -50,7 +14,7 @@ const SortAndFilter = (props) => {
                     <span>Sort</span>
                 </h3>
             </div>
-            <div className="filterDiv">
+            <div className="filterDiv" onClick={() => alert('coming soon...')}>
                 <h3 className="filterText">
                     <span className="iconStyle">
                         {<FilterOutlined />}

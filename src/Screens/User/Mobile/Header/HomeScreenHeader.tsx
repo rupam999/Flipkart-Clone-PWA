@@ -6,7 +6,7 @@ import { pathCheck } from "../../Helpers/Utilities";
 import Colors from '../../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 
-export const HomeScreenHeaer = (props) => {
+export const HomeScreenHeader = (props) => {
     const { menu, toggle, pageHeading } = props;
     const history = useHistory();
     const onOpenChange = () => {

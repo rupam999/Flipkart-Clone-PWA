@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { Drawer } from 'antd-mobile';
-import { HomeScreenHeaer, SearchBoxSecondHeader } from '../Header';
+import { HomeScreenHeader, SearchBoxSecondHeader } from '../Header';
 import WindowDimensions from '../../../../components/WindowDimensions';
 import DrawerContent from './components/DrawerContent';
+import HomeScreenTopBar from './components/HomeScreenTopBar';
 import HomeScreenSlide from './components/HomeScreenSlide';
 
 export const HomeScreen = () => {
@@ -30,15 +31,14 @@ export const HomeScreen = () => {
                 className="my-drawer"
                 style={{ minHeight: document.documentElement.clientHeight }}
                 enableDragHandle
-                // contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
                 sidebar={sidebar}
                 open={menu}
                 onOpenChange={onOpenChange}
                 >
-                <HomeScreenHeaer menu={menu} toggle={toggle} pageHeading="E-commerce" />
+                <HomeScreenHeader menu={menu} toggle={toggle} pageHeading="E-commerce" />
                 <SearchBoxSecondHeader />
                 <div style={{paddingTop: 101}}>
-                    {/* <HomeScreenTopBar /> */}
+                    <HomeScreenTopBar />
                     <HomeScreenSlide />
                     <p>Home Screen Content</p>
                 </div>
