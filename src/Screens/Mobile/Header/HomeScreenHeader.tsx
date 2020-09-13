@@ -3,7 +3,7 @@ import { NavBar } from 'antd-mobile';
 import { MenuOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router-dom";
 import { pathCheck } from "../../Helpers/Utilities";
-import Colors from '../../../../utils/Colors';
+import Colors from '../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 
 export const HomeScreenHeader = (props) => {

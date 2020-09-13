@@ -3,8 +3,8 @@ import 'antd/dist/antd.css';
 import 'antd-mobile/dist/antd-mobile.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import WindowDimensions from './components/WindowDimensions';
-import { Login } from './Screens/User/Mobile/SignInFlow';
-import { MainNavigation } from './Screens/User/Mobile/Navigation';
+import { Login } from './Screens/Mobile/SignInFlow';
+import { MainNavigation } from './Screens/Mobile/Navigation';
 
 const App = () => {
   const {width} = WindowDimensions();

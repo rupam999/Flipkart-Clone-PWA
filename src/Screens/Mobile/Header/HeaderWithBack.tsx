@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavBar, Icon } from 'antd-mobile';
 import { useHistory } from "react-router-dom";
-import Colors from '../../../../utils/Colors';
+import Colors from '../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 
 export const HeaderWithBack = (props) => {

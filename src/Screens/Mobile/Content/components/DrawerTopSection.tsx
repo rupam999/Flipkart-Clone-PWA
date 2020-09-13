@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import Colors from '../../../../../utils/Colors';
+import Colors from '../../../../utils/Colors';
 import './css/DrawerTopSectionStyle.css';
 
 const DrawerTopSection = () => {

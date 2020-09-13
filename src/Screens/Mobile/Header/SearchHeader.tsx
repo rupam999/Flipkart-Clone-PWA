@@ -3,7 +3,7 @@ import { NavBar, Icon } from 'antd-mobile';
 import { SearchOutlined, HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router-dom";
 import { pathCheck } from '../../Helpers/Utilities';
-import Colors from '../../../../utils/Colors';
+import Colors from '../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 import './css/HeaderStyle.css';
 

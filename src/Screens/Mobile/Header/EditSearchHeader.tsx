@@ -3,7 +3,7 @@ import { Form, Input } from 'antd';
 import { NavBar, Icon, Toast, ActivityIndicator } from 'antd-mobile';
 import { useHistory, useLocation } from 'react-router-dom';
 import { pathCheck } from '../../Helpers/Utilities';
-import Colors from '../../../../utils/Colors';
+import Colors from '../../../utils/Colors';
 import './css/HomeScreenHeaderStyle.css';
 import './css/HeaderStyle.css';
 

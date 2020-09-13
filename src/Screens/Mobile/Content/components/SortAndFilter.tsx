@@ -1,6 +1,6 @@
 import React from 'react';
 import { FilterOutlined, SortDescendingOutlined } from '@ant-design/icons';
-import Colors from '../../../../../utils/Colors';
+import Colors from '../../../../utils/Colors';
 import './css/SortAndFilter.css';
 
 const SortAndFilter = () => {

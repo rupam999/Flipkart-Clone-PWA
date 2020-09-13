@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import { BottomTabBar, SearchNavigation } from '../Navigation';
+import { BottomTabBar, SearchNavigation } from '.';
 import { 
     SearchResult, ShoppingCart 
 } from '../Content';

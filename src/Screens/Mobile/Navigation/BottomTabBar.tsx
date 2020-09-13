@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TabBar } from 'antd-mobile';
 import { HomeOutlined, UserOutlined, BellOutlined, HeartOutlined } from '@ant-design/icons';
-import Colors from '../../../../utils/Colors';
+import Colors from '../../../utils/Colors';
 import { HomeScreen, Wishlist, Notification } from '../Content';
 import './bottomTabStyle.css';
 

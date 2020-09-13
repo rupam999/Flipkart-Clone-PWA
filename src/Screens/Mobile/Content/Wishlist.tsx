@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import { Drawer } from 'antd-mobile';
-import { HomeScreenHeader, SearchBoxSecondHeader } from '../Header';
-import WindowDimensions from '../../../../components/WindowDimensions';
+import { HomeScreenHeader } from '../Header';
+import WindowDimensions from '../../../components/WindowDimensions';
 import DrawerContent from './components/DrawerContent';
-import HomeScreenTopBar from './components/HomeScreenTopBar';
-import HomeScreenSlide from './components/HomeScreenSlide';
 
-export const HomeScreen = () => {
+export const Wishlist = () => {
     const [menu, toggle] = useState(false);
     const {width} = WindowDimensions();
 
@@ -31,16 +29,14 @@ export const HomeScreen = () => {
                 className="my-drawer"
                 style={{ minHeight: document.documentElement.clientHeight }}
                 enableDragHandle
+                // contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
                 sidebar={sidebar}
                 open={menu}
                 onOpenChange={onOpenChange}
                 >
-                <HomeScreenHeader menu={menu} toggle={toggle} pageHeading="E-commerce" />
-                <SearchBoxSecondHeader />
+                <HomeScreenHeader menu={menu} toggle={toggle} pageHeading="My Wishlist" />
                 <div style={{paddingTop: 101}}>
-                    <HomeScreenTopBar />
-                    <HomeScreenSlide />
-                    <p>Home Screen Content</p>
+                    <p>Wishlist Screen Content</p>
                 </div>
             </Drawer>
 
