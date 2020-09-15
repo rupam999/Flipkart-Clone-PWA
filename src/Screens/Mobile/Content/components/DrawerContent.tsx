@@ -1,8 +1,8 @@
 import React from 'react';
 import { List } from 'antd-mobile';
-import './css/DrawerMainMenuStyle.css';
 import DrawerTopSection from './DrawerTopSection';
 import DrawerSeperateLink from './DrawerSeperateLink';
+import './css/DrawerMainMenuStyle.css';
 
 const DrawerContent = () => {
     return(

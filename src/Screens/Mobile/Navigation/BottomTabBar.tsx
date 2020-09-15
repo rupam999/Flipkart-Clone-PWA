@@ -1,15 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from "react-router-dom";
 import { TabBar } from 'antd-mobile';
 import { HomeOutlined, UserOutlined, BellOutlined, HeartOutlined } from '@ant-design/icons';
-import Colors from '../../../utils/Colors';
+import { userCheck } from '../../../components/userCheck';
+import { Store } from '../../../Context/Store';
+import { getData } from '../../../localStorage/getData';
 import { HomeScreen, Wishlist, Notification } from '../Content';
+// import { Logout } from '../SignInFlow';
+import Loader from '../components/mobileLoader';
+import Colors from '../../../utils/Colors';
 import './bottomTabStyle.css';
 
 export const BottomTabBar = () => {
     const [selectedTab, setSelectedTab] = useState('homeTab');
+    const [loading, setLoading] = useState(true);
+    const { setUser } = useContext(Store);
+    const loggedUser = getData('user');
+    const history = useHistory();
+    useEffect(() => {
+      if(userCheck(history)){
+        setUser(loggedUser);
+        setLoading(false);
+      }
+    }, []);
+
+    if(!loggedUser) {
+      return( <Loader /> )
+    }
 
     return (
       <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
+        {loading ? <Loader /> :
         <TabBar
           unselectedTintColor="#949494"
           tintColor="#33A3F4"
@@ -71,6 +92,7 @@ export const BottomTabBar = () => {
                 <p>Profile Tab Content</p>
             </TabBar.Item>
         </TabBar>
+        }
       </div>
     );
 }

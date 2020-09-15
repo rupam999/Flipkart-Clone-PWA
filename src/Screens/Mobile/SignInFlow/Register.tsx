@@ -1,20 +1,18 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { Form, Input, Button } from 'antd';
-import { MobileOutlined, LockOutlined } from '@ant-design/icons';
-import { handleLogin } from '../../../api/handleLogin';
-import { Store } from '../../../Context/Store';
+import { MobileOutlined } from '@ant-design/icons';
+import { sendOTP } from '../../../api/sendOTP';
 import { getData } from '../../../localStorage/getData';
 import { HeaderWithTitleOnly } from '../Header';
 import Loader from '../components/mobileLoader';
 import Colors from '../../../utils/Colors';
 import './css/SignInFlowStyle.css';
 
-export const Login = () => {
+export const Register = () => {
     const [loader, setLoader] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const { setUser } = useContext(Store);
     const history = useHistory();
     const layout = {
         labelCol: { span: 8 },
@@ -22,18 +20,21 @@ export const Login = () => {
     };
 
     const onFinish = async (values) => {
-        setLoader(true)
-        const res = await handleLogin(values);
-        setLoader(false)
-        if(res === 1) {
-            setError('Wrong Phone Number or Password!')
-        } else if(res === -1){
-            setError('Internal Server Error!')
-        } else if(res === 2) {
-            setError('Wrong User Type')
+        if(values.phone.length < 10) {
+            setError('Phone Number must be 10 digits')
         } else {
-            setUser(res)
-            history.push('/user')
+            setLoader(true)
+            const res = await sendOTP(values);
+            setLoader(false)
+            if(res === 1) {
+                setError('A user exist with this Number')
+            } else if(res === 2) {
+                setError('Internal Messaging Server Error!')
+            } else if(res === values.phone){
+                history.push('/verifyOTP', {phone: values.phone})
+            } else {
+                setError('Internal Server Error!')
+            }
         }
     };
     
@@ -61,7 +62,7 @@ export const Login = () => {
                 {loader ? <Loader /> :
                 <React.Fragment>
                     <div className="loginHeading">
-                        <h3>Login to get started</h3>
+                        <h3>Register to start exploring</h3>
                         <p>Experience the new E-commerce</p>
                         {error !== '' ? 
                             <p style={{textAlign: 'center', color: '#ff5800'}}>{error}</p>
@@ -88,20 +89,6 @@ export const Login = () => {
                                 />
                             </Form.Item>
 
-                            <Form.Item
-                                name="password"
-                                rules={[{ required: true, message: 'Please enter your Password!' }]}
-                                style={{marginTop: 5}}
-                                >
-                                <Input.Password
-                                    size="large" 
-                                    placeholder="&nbsp;Password"
-                                    prefix={<LockOutlined />} 
-                                    className="inputField"
-                                    style={{width: '100%', borderRadius: 3}} 
-                                />
-                            </Form.Item>
-
                             <Form.Item>
                                 {true ?
                                     <Button 
@@ -110,7 +97,7 @@ export const Login = () => {
                                         className="submitBtn" 
                                         style={{backgroundColor: '#ff5800'}}
                                         >
-                                        Login
+                                        Send OTP
                                     </Button>
                                 :
                                     <Button 
@@ -119,21 +106,21 @@ export const Login = () => {
                                         className="submitBtn"
                                         style={{backgroundColor: '#c2c2c2'}}
                                         >
-                                        Login
+                                        Send OTP
                                     </Button>
                                 }
                             </Form.Item>
                         </Form>
                         <div>
-                            <p className="switchPageHeading" style={{marginTop: 25}}>New to here ? Click on Register</p>
+                            <p className="switchPageHeading" style={{marginTop: 25}}>Already have an Account ?</p>
                             <Button 
                                 type="primary" 
                                 htmlType="submit" 
                                 className="submitBtn"
-                                onClick={() => history.push('/register')}
+                                onClick={() => history.push('/login')}
                                 style={{backgroundColor: Colors.darkBlue(), marginTop: 5}}
                                 >
-                                Register
+                                Login
                             </Button>
                         </div>
                     </div>

@@ -3,3 +3,4 @@ export { SearchBoxSecondHeader } from "./SearchBoxSecondHeader";
 export { HeaderWithBack } from './HeaderWithBack';
 export { SearchHeader } from './SearchHeader';
 export { EditSearchHeader } from './EditSearchHeader';
+export { HeaderWithTitleOnly } from './HeaderWithTitleOnly';

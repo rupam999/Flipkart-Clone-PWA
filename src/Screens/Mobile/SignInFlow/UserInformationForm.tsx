@@ -1,39 +1,59 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { Form, Input, Button } from 'antd';
-import { MobileOutlined, LockOutlined } from '@ant-design/icons';
-import { handleLogin } from '../../../api/handleLogin';
-import { Store } from '../../../Context/Store';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { handleSignup } from '../../../api/handleSignup';
 import { getData } from '../../../localStorage/getData';
+import { storeData } from '../../../localStorage/storeData';
+import { removeData } from '../../../localStorage/removeData';
+import { Store } from '../../../Context/Store';
 import { HeaderWithTitleOnly } from '../Header';
 import Loader from '../components/mobileLoader';
 import Colors from '../../../utils/Colors';
 import './css/SignInFlowStyle.css';
 
-export const Login = () => {
+export const UserInformationForm = () => {
     const [loader, setLoader] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [phoneNumber, setPhoneNumber] = useState<any>('');
     const [error, setError] = useState('');
-    const { setUser } = useContext(Store);
     const history = useHistory();
+    const location = useLocation();
+    const { setUser } = useContext(Store);
+
+    let number;
+    useEffect(() => {
+        if(!location.state){
+            history.push('/login')
+        } else {
+            setLoading(false);
+            number = location.state;
+            setPhoneNumber(number.phone)
+        }
+    });
+
     const layout = {
         labelCol: { span: 8 },
         wrapperCol: { span: 16 },
     };
 
     const onFinish = async (values) => {
-        setLoader(true)
-        const res = await handleLogin(values);
-        setLoader(false)
-        if(res === 1) {
-            setError('Wrong Phone Number or Password!')
-        } else if(res === -1){
-            setError('Internal Server Error!')
-        } else if(res === 2) {
-            setError('Wrong User Type')
+        values.phone = phoneNumber;
+        values.type = "Buyer"
+        if(values.password.length < 6) {
+            setError('Password Should be atleast 6 Characters')
         } else {
-            setUser(res)
-            history.push('/user')
+            setLoader(true)
+            const user = await handleSignup(values);
+            setLoader(false)
+            if(user !== -1 && user.uid) {
+                setUser(user)
+                storeData('user', {...values, uid: user.uid, password: ''})
+                removeData('password');
+                history.push('/user')
+            } else {
+                setError('Internal Server Error!')
+            }
         }
     };
     
@@ -46,8 +66,6 @@ export const Login = () => {
         const user = getData('user');
         if(user && user.uid) {
             history.push('/user');
-        } else {
-            setLoading(false);
         }
     });
 
@@ -61,7 +79,7 @@ export const Login = () => {
                 {loader ? <Loader /> :
                 <React.Fragment>
                     <div className="loginHeading">
-                        <h3>Login to get started</h3>
+                        <h3>Enter your Details</h3>
                         <p>Experience the new E-commerce</p>
                         {error !== '' ? 
                             <p style={{textAlign: 'center', color: '#ff5800'}}>{error}</p>
@@ -76,14 +94,14 @@ export const Login = () => {
                             onFinishFailed={onFinishFailed}
                             >
                             <Form.Item
-                                name="phone"
-                                rules={[{ required: true, message: 'Please enter your Phone Number!' }]}
+                                name="name"
+                                rules={[{ required: true, message: 'Please enter your Full Name!' }]}
                                 >
                                 <Input 
-                                    type='number'
+                                    type='default'
                                     size="large" 
-                                    placeholder="&nbsp;Phone Number" 
-                                    prefix={<MobileOutlined />} 
+                                    placeholder="&nbsp;Full Name" 
+                                    prefix={<UserOutlined />} 
                                     style={{width: '100%', borderRadius: 3}} 
                                 />
                             </Form.Item>
@@ -103,39 +121,16 @@ export const Login = () => {
                             </Form.Item>
 
                             <Form.Item>
-                                {true ?
-                                    <Button 
-                                        type="primary"
-                                        htmlType="submit" 
-                                        className="submitBtn" 
-                                        style={{backgroundColor: '#ff5800'}}
-                                        >
-                                        Login
-                                    </Button>
-                                :
-                                    <Button 
-                                        type="primary" 
-                                        htmlType="submit" 
-                                        className="submitBtn"
-                                        style={{backgroundColor: '#c2c2c2'}}
-                                        >
-                                        Login
-                                    </Button>
-                                }
+                                <Button 
+                                    type="primary"
+                                    htmlType="submit" 
+                                    className="submitBtn" 
+                                    style={{backgroundColor: '#ff5800'}}
+                                    >
+                                    Submit
+                                </Button>
                             </Form.Item>
                         </Form>
-                        <div>
-                            <p className="switchPageHeading" style={{marginTop: 25}}>New to here ? Click on Register</p>
-                            <Button 
-                                type="primary" 
-                                htmlType="submit" 
-                                className="submitBtn"
-                                onClick={() => history.push('/register')}
-                                style={{backgroundColor: Colors.darkBlue(), marginTop: 5}}
-                                >
-                                Register
-                            </Button>
-                        </div>
                     </div>
                 </React.Fragment>
                 }
