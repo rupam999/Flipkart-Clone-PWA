@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import { BottomTabBar, SearchNavigation } from '.';
+import { BottomTabBar, SearchNavigation } from '../Navigation';
 import { 
-    SearchResult, ShoppingCart 
+    ShoppingCart, ProductDetails
 } from '../Content';
 
 export const MainNavigation = () => {
@@ -13,6 +13,10 @@ export const MainNavigation = () => {
                     exact 
                     path="/user" 
                     render={() => <BottomTabBar />} 
+                />
+                <Route
+                    path="/user/product"
+                    render={() => <ProductDetails />}
                 />
                 <Route
                     path="/user/search"

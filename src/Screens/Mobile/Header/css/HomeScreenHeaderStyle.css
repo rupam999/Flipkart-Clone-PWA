@@ -1,7 +1,6 @@
 .topFixedHeader {
     position: fixed;
     width: 100%;
-    height: 250px;
     top: 0px;
 }
 
