@@ -11,8 +11,9 @@ import { getProducts } from '../../../api/getProducts';
 import './components/css/SortAndFilter.css';
 
 export const SearchResult = () => {
-    const [searchResult, setSearchResult] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [pageLoader, setPageLoader] = useState(false);
+    const [searchResult, setSearchResult] = useState([]);
     const { setUser } = useContext(Store);
     const history = useHistory();
     const loggedUser = getData('user');
@@ -20,9 +21,11 @@ export const SearchResult = () => {
     const [userQuery, setUserQuery] = useState('');
 
     const getProductsData = async () => {
+        setPageLoader(true)
         const response = await getProducts();
         if(response !== 1) {
             setSearchResult(response);
+            setPageLoader(false);
         }
     }
 
@@ -30,7 +33,7 @@ export const SearchResult = () => {
         let searchText;
         if(userCheck(history)){
             setUser(loggedUser);
-            setLoading(false);
+            setLoading(false)
             searchText = location.state;
             setUserQuery(searchText.searchData);
             getProductsData();
@@ -40,15 +43,19 @@ export const SearchResult = () => {
     return(
         <React.Fragment>
         {loading ? <Loader /> :
-            <React.Fragment>
+            <div>
                 <SearchHeader searchData={userQuery} />
-                <SortAndFilter /> 
-                <div style={{marginTop: 90}}>
-                    {searchResult.map((productDetails, index) => 
-                        <SeperateGrocery key={index} productInformation={productDetails} />
-                    )}
+                {pageLoader ? <Loader /> :
+                <div>
+                    <SortAndFilter /> 
+                    <div style={{marginTop: 90}}>
+                        {searchResult.map((productDetails, index) => 
+                            <SeperateGrocery key={index} productInformation={productDetails} />
+                        )}
+                    </div>
                 </div>
-            </React.Fragment>
+                }
+            </div>
         }
         </React.Fragment>
     );

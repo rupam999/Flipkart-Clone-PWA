@@ -27,8 +27,6 @@ export const ProductDetails = () => {
         }
     }, []);
 
-    console.log("DATA", productDetails)
-
     return(
         <React.Fragment>
         {loading ? <Loader /> :

@@ -14,6 +14,10 @@ const SeperateGrocery = (props) => {
         }
     }
 
+    const getDiscountAmount = (mrp: number, actual: number) => {
+        return Math.floor(((mrp - actual)/mrp) * 100);
+    }
+
     return(
         <div className="mainDiv">
             <div className="parentDivOf3SubDiv">  
@@ -33,12 +37,20 @@ const SeperateGrocery = (props) => {
                     <h3 
                         className="productHeading" 
                         onClick={sendToDetailsPage}>
-                        {productInformation.name}
+                        {productInformation.organic ? 
+                            <span>{productInformation.name} <span>&nbsp;(Organic)</span></span>
+                        : 
+                            <span>{productInformation.name}</span> 
+                        }
                     </h3>
                     <h4 onClick={sendToDetailsPage}>
                         <span className="mainPrice">&#8377; {productInformation.price} </span> 
-                        <span className="mrpPrice"> 500 </span>
-                        <span className="offPercentage"> 36% off</span>
+                        <span className="mrpPrice"> {productInformation.mrp} </span>
+                        {Math.floor(Number(productInformation.mrp) - Number(productInformation.price)) ? 
+                            <span className="offPercentage">
+                                {getDiscountAmount(Number(productInformation.mrp), Number(productInformation.price))}% off
+                            </span>
+                        : null }
                     </h4>
                     <div className="productQuantityDiv">
                         <h4 className="productQuantity">10 kg</h4>
