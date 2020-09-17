@@ -1,8 +1,17 @@
 import React from 'react';
+import { Carousel } from 'antd';
+import IMG from '../../../../assets/mainBanner.jpg';
 
 const HomeScreenSlide = () => {
   return(
-    <p>Slide Content</p>
+    <Carousel>
+      <div style={{height: 160, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <img
+          src={IMG}
+          height={160}
+        />
+      </div>
+    </Carousel>
   );
 }
 
