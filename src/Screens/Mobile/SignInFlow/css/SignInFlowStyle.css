@@ -15,6 +15,14 @@
     padding: 18px;
 }
 
+.loginFormContent .ant-col-16 {
+    max-width: 100%;
+}
+
+.registationFormContent .ant-col-16 {
+    max-width: 100%;
+}
+
 .loginHeading {
     margin-top: 20px;
     margin-bottom: 25px;

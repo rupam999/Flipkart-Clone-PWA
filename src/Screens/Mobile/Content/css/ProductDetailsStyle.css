@@ -1,0 +1,142 @@
+.productNameAndPrice {
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.productNameAndPrice .productHeading {
+    text-align: left;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    padding-bottom: 4px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    margin-bottom: 2px;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.productPrice .actutalSellingPrice {
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    font-family: "Roboto Medium", Roboto-Medium, "Droid Sans", HelveticaNeue-Medium, "Helvetica Neue Medium", sans-serif-medium;
+}
+
+.productPrice .mrpPrice {
+    margin-left: 8px;
+    text-decoration-line: line-through;
+    font-size: 14px;
+    font-family: "Roboto Medium", Roboto-Medium, "Droid Sans", HelveticaNeue-Medium, "Helvetica Neue Medium", sans-serif-medium;
+}
+
+.productPrice .offPercantage {
+    margin-left: 6px;
+    font-size: 14px;
+    color: rgb(38, 165, 65);
+    font-family: "Roboto Medium", Roboto-Medium, "Droid Sans", HelveticaNeue-Medium, "Helvetica Neue Medium", sans-serif-medium;
+}
+
+.checkZipCode .ant-col-16{
+    max-width: 100%;
+}
+
+.checkZipCode {
+    background-color: #fff;
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.checkZipCode h2 {
+    margin-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    font-weight: 550;
+}
+
+.zipcodeForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkZipCode .ant-input-affix-wrapper:hover {
+    border-right-width: 0px !important;
+}
+
+.zipcodeInputBox {
+    border-width: 0px;
+    width: 75%;
+}
+
+.checkBtn {
+    width: 25%;
+    padding-left: 0px;
+    padding-right: 15px;
+    background-color: #fff;
+    color: #000;
+    border-width: 0px;
+}
+
+.zipcodeInformation {
+    margin-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.checkZipCode h4 {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.checkZipCode h5 {
+    display: block;
+    font-size: 12px;
+    color: rgba(0,0,0,.5);
+    font-weight: 400;
+}
+
+
+
+
+.bottomFixedBar {
+    position: fixed;
+    bottom: 0px;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -1px 3px 0px;
+}
+
+.bottomFixedBar .addToCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 50%;
+}
+
+.bottomFixedBar .addToCart h3 {
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    font-size: 14px;
+}
+
+.bottomFixedBar .buyNow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 88, 0);
+    width: 50%;
+}
+
+.bottomFixedBar .buyNow h3 {
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+}

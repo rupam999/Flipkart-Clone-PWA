@@ -68,7 +68,7 @@ export const Register = () => {
                             <p style={{textAlign: 'center', color: '#ff5800'}}>{error}</p>
                         : null }
                     </div>
-                    <div>
+                    <div className="registationFormContent">
                         <Form
                             {...layout}
                             name="basic"
