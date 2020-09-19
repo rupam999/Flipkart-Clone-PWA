@@ -12,7 +12,7 @@ const DrawerContent = () => {
                 <List>
                     <DrawerSeperateLink fieldName="New Products" />
                     <DrawerSeperateLink fieldName="All Categories" callBack="/user/all-categories" />
-                    <DrawerSeperateLink fieldName="Offer Zone" />
+                    <DrawerSeperateLink fieldName="Offer Zone" callBack="/user/offer" />
                 </List>
                 <List>
                     <DrawerSeperateLink fieldName="My Orders" />

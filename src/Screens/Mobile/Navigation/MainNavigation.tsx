@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import { BottomTabBar, SearchNavigation } from '../Navigation';
 import { 
-    ShoppingCart, ProductDetails, AllCategories
+    ShoppingCart, ProductDetails, AllCategories, OfferZone
 } from '../Content';
 
 export const MainNavigation = () => {
@@ -13,6 +13,11 @@ export const MainNavigation = () => {
                     exact 
                     path="/user" 
                     render={() => <BottomTabBar />} 
+                />
+                <Route
+                    exact
+                    path="/user/offer"
+                    render={() => <OfferZone />}
                 />
                 <Route
                     exact
