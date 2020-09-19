@@ -67,7 +67,7 @@ export const Login = () => {
                             <p style={{textAlign: 'center', color: '#ff5800'}}>{error}</p>
                         : null }
                     </div>
-                    <div>
+                    <div className="loginFormContent">
                         <Form
                             {...layout}
                             name="basic"

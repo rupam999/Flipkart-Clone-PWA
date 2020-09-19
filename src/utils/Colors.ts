@@ -16,6 +16,12 @@ const Colors = {
     },
     green: (a = 1) => {
         return `rgba(38, 165, 65, ${a});`;
+    },
+    fontColor: (a = 1) => {
+        return `rgba(33, 33, 33, ${a});`;
+    },
+    fontGray: (a = 1) => {
+        return `rgba(135, 135, 135, ${a});`;
     }
 }
 
