@@ -5,3 +5,4 @@ export { Wishlist } from './Wishlist';
 export { Notification } from './Notification';
 export { EditSearchBar } from './EditSearchBar';
 export { ProductDetails } from './ProductDetails';
+export { AllCategories } from './AllCategories';

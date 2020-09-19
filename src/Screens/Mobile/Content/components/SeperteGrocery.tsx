@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { List, Stepper } from 'antd-mobile';
 import { TagsOutlined } from '@ant-design/icons';
 import './css/SeperateGroceryStyle.css';
 import { pathCheck } from '../../../Helpers/Utilities';
@@ -66,6 +67,25 @@ const SeperateGrocery = (props) => {
                             <h3 className="btnText">+</h3>
                         </div>
                     </div>
+                    {/* 
+                        <List>
+                        <List.Item
+                            wrap
+                            extra={
+                                <Stepper
+                                    // style={{ width: '100%', minWidth: '100px' }}
+                                    showNumber
+                                    max={10}
+                                    min={1}
+                                    value={3}
+                                    // onChange={this.onChange}
+                                />}
+                            >
+
+                                {/* .am-stepper {width} */}
+                        {/* </List.Item> */}
+                    {/* </List> */}
+                    {/* */} 
                 </div>
 
             </div>

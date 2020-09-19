@@ -11,7 +11,7 @@ const DrawerContent = () => {
             <div className="drawerMainMenu">
                 <List>
                     <DrawerSeperateLink fieldName="New Products" />
-                    <DrawerSeperateLink fieldName="All Categories" />
+                    <DrawerSeperateLink fieldName="All Categories" callBack="/user/all-categories" />
                     <DrawerSeperateLink fieldName="Offer Zone" />
                 </List>
                 <List>

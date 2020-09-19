@@ -6,6 +6,7 @@ export const LOGIN = "/api/user/login"
 export const SEND_OTP = "/api/user/sendOTP"
 export const VERIFY_OTP = "/api/user/verifyPhoneNumber"
 export const REGISTER = "/api/user/register"
+export const GET_CATEGORIES = "/api/categories"
 export const GET_PRODUCT = "/api/products"
 
 export default axios.create({
