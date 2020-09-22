@@ -15,13 +15,13 @@ const Colors = {
         return `rgba(33, 29, 29, ${a})`;
     },
     green: (a = 1) => {
-        return `rgba(38, 165, 65, ${a});`;
+        return `rgba(38, 165, 65, ${a})`;
     },
     fontColor: (a = 1) => {
-        return `rgba(33, 33, 33, ${a});`;
+        return `rgba(33, 33, 33, ${a})`;
     },
     fontGray: (a = 1) => {
-        return `rgba(135, 135, 135, ${a});`;
+        return `rgba(135, 135, 135, ${a})`;
     }
 }
 

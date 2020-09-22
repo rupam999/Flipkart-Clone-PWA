@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { 
-    SearchResult, EditSearchBar
-} from '../Content';
+import { SearchResult, EditSearchBar } from "../Content";
 
 export const SearchNavigation = () => {
-    return(
+    return (
         <React.Fragment>
             <Switch>
                 <Route
@@ -21,4 +19,4 @@ export const SearchNavigation = () => {
             </Switch>
         </React.Fragment>
     );
-}
+};
