@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Image } from 'antd';
 import './css/ShoppingCartStyle.css';
 import IMG from '../../../../assets/EmptyCart.png';
 import Colors from '../../../../utils/Colors';
@@ -17,7 +16,7 @@ const CartMainBody = () => {
                         position: 'fixed'
                     }}
                     >
-                    <Image
+                    <img
                         src={IMG} 
                         className="emptyCartImage"
                     />

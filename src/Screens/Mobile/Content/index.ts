@@ -7,3 +7,4 @@ export { ProductDetails } from './ProductDetails';
 export { Wishlist } from './Wishlist';
 export { ShoppingCart } from "./ShoppingCart";
 export { Notification } from './Notification';
+export { SubCategoryScreen } from './SubCategoryScreen';

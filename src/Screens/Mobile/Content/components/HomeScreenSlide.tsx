@@ -8,7 +8,7 @@ const HomeScreenSlide = () => {
       <div style={{height: 160, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <img
           src={IMG}
-          height={160}
+          width={'100%'}
         />
       </div>
     </Carousel>

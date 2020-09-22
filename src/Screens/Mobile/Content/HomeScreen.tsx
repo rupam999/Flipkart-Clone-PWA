@@ -37,7 +37,7 @@ export const HomeScreen = () => {
                 >
                 <HomeScreenHeader menu={menu} toggle={toggle} pageHeading="E-commerce" />
                 <SearchBoxSecondHeader />
-                <div style={{paddingTop: 102}}>
+                <div style={{paddingTop: 101}}>
                     <HomeScreenSlide />
                     <p>Home Screen Content</p>
                 </div>

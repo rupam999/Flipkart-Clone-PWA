@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import { 
-    SearchResult, EditSearchBar
+    SearchResult, EditSearchBar, SubCategoryScreen
 } from '../Content';
 
 export const SearchNavigation = () => {
@@ -12,6 +12,11 @@ export const SearchNavigation = () => {
                     exact
                     path="/user/search"
                     render={() => <SearchResult />}
+                />
+                <Route
+                    exact
+                    path="/user/search/:searchCategory"
+                    render={() => <SubCategoryScreen />}
                 />
                 <Route
                     exact

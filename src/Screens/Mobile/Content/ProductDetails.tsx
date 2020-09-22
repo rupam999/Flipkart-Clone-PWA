@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Button, Input } from 'antd';
+import { Button, Input, Image } from 'antd';
 import { AimOutlined } from '@ant-design/icons';
 import { userCheck } from '../../../components/userCheck';
 import { Store } from '../../../Context/Store';
@@ -30,9 +30,7 @@ export const ProductDetails = () => {
         }
     }, []);
 
-    const calculateDiscount = (mrp: number, actual: number) => {
-        return Math.floor(((mrp - actual)/mrp) * 100);
-    }
+    const calculateDiscount = (mrp: number, actual: number) => Math.floor(((mrp - actual)/mrp) * 100)
 
     return(
         <React.Fragment>
@@ -41,8 +39,9 @@ export const ProductDetails = () => {
                 <HeaderWithoutTitle left='left' productName={productDetails.name} />
                 <div style={{ marginTop: 45, width: '100%', backgroundColor: Colors.white(), paddingTop: 50, paddingLeft: 15, paddingRight: 15 }}>
                     <div style={{height: 400, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img 
+                        <Image 
                             src='https://rukminim1.flixcart.com/image/1150/1150/k70spzk0/nut-dry-fruit/h/h/h/100-californian-pouch-flipkart-supermart-select-original-imafpck6zmdfygs5.jpeg?q=90'
+                            width={'80%'}
                             height={400}
                         />
                     </div>
@@ -83,6 +82,11 @@ export const ProductDetails = () => {
                         <h4>Usually delivered in same day</h4>
                         <h5>Enter pincode for exact delivery dates</h5>
                     </div>
+                </div>
+
+                <div>
+                    <br /><br /><br />
+                    <br /><br /><br />
                 </div>
 
                 {/* Bottom Bar */}

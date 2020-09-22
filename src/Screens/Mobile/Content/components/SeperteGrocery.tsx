@@ -15,9 +15,7 @@ const SeperateGrocery = (props) => {
         }
     }
 
-    const getDiscountAmount = (mrp: number, actual: number) => {
-        return Math.floor(((mrp - actual)/mrp) * 100);
-    }
+    const getDiscountAmount = (mrp: number, actual: number) => Math.floor(((mrp - actual)/mrp) * 100)
 
     return(
         <div className="mainDiv">
@@ -46,7 +44,7 @@ const SeperateGrocery = (props) => {
                     </h3>
                     <h4 onClick={sendToDetailsPage}>
                         <span className="mainPrice">&#8377; {productInformation.price} </span> 
-                        <span className="mrpPrice"> {productInformation.mrp} </span>
+                        <span className="mrpPrice"> {productInformation.mrp}</span>
                         {Math.floor(Number(productInformation.mrp) - Number(productInformation.price)) ? 
                             <span className="offPercentage">
                                 {getDiscountAmount(Number(productInformation.mrp), Number(productInformation.price))}% off
@@ -54,7 +52,7 @@ const SeperateGrocery = (props) => {
                         : null }
                     </h4>
                     <div className="productQuantityDiv">
-                        <h4 className="productQuantity">10 kg</h4>
+                        <h4 className="productQuantity">{productInformation.quantity}</h4>
                     </div>
                 </div>
 

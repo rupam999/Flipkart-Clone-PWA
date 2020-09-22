@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Flex } from "antd-mobile";
 import { userCheck } from "../../../components/userCheck";
 import { Store } from "../../../Context/Store";
@@ -63,7 +63,8 @@ const SuperOfferSection = () => {
     );
 };
 
-export const OfferZone = () => {
+export const SubCategoryScreen = () => {
+    const { searchCategory }: any = useParams();
     const [loading, setLoading] = useState(true);
     const { setUser } = useContext(Store);
     const history = useHistory();
@@ -82,8 +83,9 @@ export const OfferZone = () => {
                 <Loader />
             ) : (
                 <div>
-                    <HeaderWithBack name="Today's Offer" icon="left" />
+                    <HeaderWithBack name={searchCategory} icon="left" />
                     <div style={{ marginTop: 45, zIndex: 1 }}>
+                        {/* Shop by offers */}
                         <SuperOfferSection />
                     </div>
                 </div>

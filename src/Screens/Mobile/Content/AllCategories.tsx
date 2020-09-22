@@ -1,12 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Grid } from 'antd-mobile';
-import { userCheck } from '../../../components/userCheck';
-import { Store } from '../../../Context/Store';
-import { getData } from '../../../localStorage/getData';
-import { getCategories } from '../../../api/getCategories';
-import Loader from '../components/mobileLoader';
-import { HeaderWithBack } from '../Header';
+import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { Collapse } from "antd";
+import { Flex, Grid } from "antd-mobile";
+import { userCheck } from "../../../components/userCheck";
+import { Store } from "../../../Context/Store";
+import { getData } from "../../../localStorage/getData";
+import { getCategories } from "../../../api/getCategories";
+import Loader from "../components/mobileLoader";
+import { HeaderWithBack } from "../Header";
+import { pathCheck } from "../../Helpers/Utilities";
+const { Panel } = Collapse;
 
 export const AllCategories = () => {
     const [loading, setLoading] = useState(true);
@@ -14,52 +17,73 @@ export const AllCategories = () => {
     const [category, setCategory] = useState([]);
     const { setUser } = useContext(Store);
     const history = useHistory();
-    const loggedUser = getData('user');
+    const loggedUser = getData("user");
 
     useEffect(() => {
-        if(userCheck(history)){
-          setUser(loggedUser);
-          getCategories()
-            .then(res => {
-                if(res !== 1) {
-                    setAllCategoriesData(res);
-                    setCategory(res.map((item) => {
-                        return item.category;
-                    }));
-                } else {
-                    console.log('ERROR')
-                }
-            })
-            .catch();
-          setLoading(false);
+        if (userCheck(history)) {
+            setUser(loggedUser);
+            getCategories()
+                .then((res) => {
+                    if (res !== 1) {
+                        setAllCategoriesData(res);
+                        setCategory(
+                            res.map((item) => {
+                                return item.category;
+                            })
+                        );
+                    } else {
+                        console.log("ERROR");
+                    }
+                })
+                .catch();
+            setLoading(false);
         }
     }, []);
 
-    const sendToCategoryPage = (value) => {
-        // setChoosenCategory(value)
-        const categoryIndex = allCategoriesData.findIndex((item) => item.category === value)
-        const subCategoryData = categoryIndex === -1 ? [] : 
-            allCategoriesData[categoryIndex].sub_category.split(',');
-        // setSubCategory(subCategoryData)
-    }
+    const navigateToSeperateCategory = (subCategory: string) => {
+        if (pathCheck(history, `/user/search/${subCategory}`)) {
+            history.push(`/user/search/${subCategory}`);
+        }
+    };
 
-    const allCategoryForGrid = category.map((individualCategory) => ({
-        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-        text: `${individualCategory}`,
-    }));
+    const allCategoryForGrid = category.map((category) => {
+        const categoryIndex = allCategoriesData.findIndex(
+            (item) => item.category === category
+        );
+        const subCategoryData =
+            categoryIndex === -1
+                ? []
+                : allCategoriesData[categoryIndex].sub_category.split(",");
 
-    return(
+        const showSubCategoryData = subCategoryData.map((item, index) => (
+            <div onClick={() => alert(item)} key={index}>
+                <p>{item}</p>
+            </div>
+        ));
+
+        return (
+            // <div onClick={() => navigateToSeperateCategory(category)}>
+            <Panel header={category} key={category}>
+                {showSubCategoryData}
+            </Panel>
+            // </div>
+        );
+    });
+
+    return (
         <React.Fragment>
-        {loading ? <Loader /> :
-            <div>
-                <HeaderWithBack name="All Categories" icon="left" />
-                <div style={{ marginTop: 45 }}>
-                    <div className="sub-title">
-                        <Grid data={allCategoryForGrid} columnNum={3} activeStyle={true} />
+            {loading ? (
+                <Loader />
+            ) : (
+                <div>
+                    <HeaderWithBack name="All Categories" icon="left" />
+                    <div style={{ marginTop: 45 }}>
+                        <div>
+                            <Collapse ghost>{allCategoryForGrid}</Collapse>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
+            )}
         </React.Fragment>
     );
-}
+};

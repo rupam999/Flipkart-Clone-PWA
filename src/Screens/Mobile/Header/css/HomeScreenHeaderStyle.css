@@ -39,6 +39,10 @@
     z-index: 2;
 }
 
+.searchBar .ant-col-16 {
+    max-width: 100%;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     opacity: 1;
     font-family: Arial, Helvetica, sans-serif;

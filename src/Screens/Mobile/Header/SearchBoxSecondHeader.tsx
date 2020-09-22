@@ -29,7 +29,7 @@ export const SearchBoxSecondHeader = () => {
   };
 
   return (
-    <div className="searchFixedHeader" style={{backgroundColor: Colors.darkBlue()}}>
+    <div className="searchFixedHeader searchBar" style={{backgroundColor: Colors.darkBlue()}}>
       <div style={{position: 'relative', padding: 10, paddingBottom: 7}}>
         <Form
           {...layout}
