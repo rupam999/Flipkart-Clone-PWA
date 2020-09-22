@@ -1,33 +1,25 @@
-import React from 'react';
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { BottomTabBar, SearchNavigation } from '../Navigation';
-import { 
-    ShoppingCart, ProductDetails, AllCategories, OfferZone
-} from '../Content';
+import { BottomTabBar, SearchNavigation } from "../Navigation";
+import {
+    ShoppingCart,
+    ProductDetails,
+    AllCategories,
+    OfferZone,
+} from "../Content";
 
 export const MainNavigation = () => {
-    return(
+    return (
         <React.Fragment>
             <Switch>
-                <Route 
-                    exact 
-                    path="/user" 
-                    render={() => <BottomTabBar />} 
-                />
-                <Route
-                    exact
-                    path="/user/offer"
-                    render={() => <OfferZone />}
-                />
+                <Route exact path="/user" render={() => <BottomTabBar />} />
+                <Route exact path="/user/offer" render={() => <OfferZone />} />
                 <Route
                     exact
                     path="/user/all-categories"
                     render={() => <AllCategories />}
                 />
-                <Route
-                    path="/user/product"
-                    render={() => <ProductDetails />}
-                />
+                <Route path="/user/product" render={() => <ProductDetails />} />
                 <Route
                     path="/user/search"
                     render={() => <SearchNavigation />}
@@ -40,4 +32,4 @@ export const MainNavigation = () => {
             </Switch>
         </React.Fragment>
     );
-}
+};

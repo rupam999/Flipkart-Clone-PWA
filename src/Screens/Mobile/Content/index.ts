@@ -1,10 +1,9 @@
 export { HomeScreen } from "./HomeScreen";
-export { OfferZone } from './OfferZone';
-export { AllCategories } from './AllCategories';
-export { SearchResult } from './SearchResult';
-export { EditSearchBar } from './EditSearchBar';
-export { ProductDetails } from './ProductDetails';
-export { Wishlist } from './Wishlist';
+export { OfferZone } from "./OfferZone";
+export { AllCategories } from "./AllCategories";
+export { SearchResult } from "./SearchResult";
+export { EditSearchBar } from "./EditSearchBar";
+export { ProductDetails } from "./ProductDetails";
+export { Wishlist } from "./Wishlist";
 export { ShoppingCart } from "./ShoppingCart";
-export { Notification } from './Notification';
-export { SubCategoryScreen } from './SubCategoryScreen';
+export { Notification } from "./Notification";

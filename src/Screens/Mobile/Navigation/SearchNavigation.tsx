@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { 
-    SearchResult, EditSearchBar, SubCategoryScreen
-} from '../Content';
+import { SearchResult, EditSearchBar } from "../Content";
 
 export const SearchNavigation = () => {
-    return(
+    return (
         <React.Fragment>
             <Switch>
                 <Route
@@ -15,15 +13,10 @@ export const SearchNavigation = () => {
                 />
                 <Route
                     exact
-                    path="/user/search/:searchCategory"
-                    render={() => <SubCategoryScreen />}
-                />
-                <Route
-                    exact
                     path="/user/search/edit"
                     render={() => <EditSearchBar />}
                 />
             </Switch>
         </React.Fragment>
     );
-}
+};

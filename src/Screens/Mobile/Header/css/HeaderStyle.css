@@ -8,20 +8,21 @@
 }
 
 /* Edit Search Header */
-.editSearchHeaderDiv .am-navbar-title{
+.editSearchHeaderDiv .am-navbar-title {
     width: 100%;
-    flex: 1!important;
+    flex: 1 !important;
 }
 
 .editSearchHeaderDiv .am-navbar-right {
-    flex: none!important;
+    flex: none !important;
 }
 
 .editSearchHeaderDiv .am-navbar-left {
-    flex: none!important;
+    flex: none !important;
 }
 
-.editSearchHeaderDiv .ant-row,.ant-form-item {
+.editSearchHeaderDiv .ant-row,
+.ant-form-item {
     margin-bottom: 0px !important;
 }
 
@@ -31,5 +32,5 @@
 }
 
 .editSearchHeaderDiv .ant-input:hover {
-    border-width: 0px!important;
+    border-width: 0px !important;
 }

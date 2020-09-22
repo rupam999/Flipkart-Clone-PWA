@@ -1,3 +1,3 @@
 export const removeData = (key: string) => {
-    return localStorage.removeItem(key)
-}
+    return localStorage.removeItem(key);
+};

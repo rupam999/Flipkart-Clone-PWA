@@ -1,58 +1,70 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { List, Stepper } from 'antd-mobile';
-import { TagsOutlined } from '@ant-design/icons';
-import './css/SeperateGroceryStyle.css';
-import { pathCheck } from '../../../Helpers/Utilities';
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { List, Stepper } from "antd-mobile";
+import { TagsOutlined } from "@ant-design/icons";
+import "./css/SeperateGroceryStyle.css";
+import { pathCheck } from "../../../Helpers/Utilities";
 
 const SeperateGrocery = (props) => {
     const { productInformation } = props;
     const history = useHistory();
 
     const sendToDetailsPage = () => {
-        if(pathCheck(history, "/user/product")) {
-            history.push('/user/product', {productInformation})
+        if (pathCheck(history, "/user/product")) {
+            history.push("/user/product", { productInformation });
         }
-    }
+    };
 
-    const getDiscountAmount = (mrp: number, actual: number) => Math.floor(((mrp - actual)/mrp) * 100)
+    const getDiscountAmount = (mrp: number, actual: number) =>
+        Math.floor(((mrp - actual) / mrp) * 100);
 
-    return(
+    return (
         <div className="mainDiv">
-            <div className="parentDivOf3SubDiv">  
-
-                <div 
-                    className="productImageDiv"
-                    onClick={sendToDetailsPage}
-                    >
-                    <img 
+            <div className="parentDivOf3SubDiv">
+                <div className="productImageDiv" onClick={sendToDetailsPage}>
+                    <img
                         src="https://rukminim1.flixcart.com/image/300/350/j8rnpu80/pulses/q/g/w/500-toor-dal-arhar-dal-desi-arhar-dal-un-branded-original-imaeymjgrjw8xgvw.jpeg?q=90"
-                        width='90%'
+                        width="90%"
                         className="productImage"
                     />
                 </div>
 
                 <div className="productDescription">
-                    <h3 
-                        className="productHeading" 
-                        onClick={sendToDetailsPage}>
-                        {productInformation.organic ? 
-                            <span>{productInformation.name} <span>&nbsp;(Organic)</span></span>
-                        : 
-                            <span>{productInformation.name}</span> 
-                        }
+                    <h3 className="productHeading" onClick={sendToDetailsPage}>
+                        {productInformation.organic ? (
+                            <span>
+                                {productInformation.name}{" "}
+                                <span>&nbsp;(Organic)</span>
+                            </span>
+                        ) : (
+                            <span>{productInformation.name}</span>
+                        )}
                     </h3>
                     <h4 onClick={sendToDetailsPage}>
-                        <span className="mainPrice">&#8377; {productInformation.price} </span> 
-                        <span className="mrpPrice"> {productInformation.mrp}</span>
-                        {Math.floor(Number(productInformation.mrp) - Number(productInformation.price)) ? 
+                        <span className="mainPrice">
+                            &#8377; {productInformation.price}{" "}
+                        </span>
+                        <span className="mrpPrice">
+                            {" "}
+                            {productInformation.mrp}
+                        </span>
+                        {Math.floor(
+                            Number(productInformation.mrp) -
+                                Number(productInformation.price)
+                        ) ? (
                             <span className="offPercentage">
-                                {getDiscountAmount(Number(productInformation.mrp), Number(productInformation.price))}% off
+                                {getDiscountAmount(
+                                    Number(productInformation.mrp),
+                                    Number(productInformation.price)
+                                )}
+                                % off
                             </span>
-                        : null }
+                        ) : null}
                     </h4>
                     <div className="productQuantityDiv">
-                        <h4 className="productQuantity">{productInformation.quantity}</h4>
+                        <h4 className="productQuantity">
+                            {productInformation.quantity}
+                        </h4>
                     </div>
                 </div>
 
@@ -81,19 +93,23 @@ const SeperateGrocery = (props) => {
                             >
 
                                 {/* .am-stepper {width} */}
-                        {/* </List.Item> */}
+                    {/* </List.Item> */}
                     {/* </List> */}
-                    {/* */} 
+                    {/* */}
                 </div>
-
             </div>
 
             <div className="offerTagline">
-                <h3 className="offerTag"><span><TagsOutlined />&nbsp;</span>Buy More And Save More</h3>
+                <h3 className="offerTag">
+                    <span>
+                        <TagsOutlined />
+                        &nbsp;
+                    </span>
+                    Buy More And Save More
+                </h3>
             </div>
-
         </div>
     );
-}
+};
 
 export default SeperateGrocery;
