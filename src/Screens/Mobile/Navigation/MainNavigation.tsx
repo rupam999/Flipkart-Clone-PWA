@@ -6,6 +6,8 @@ import {
     ProductDetails,
     AllCategories,
     OfferZone,
+    Error404,
+    ReportBug,
 } from "../Content";
 
 export const MainNavigation = () => {
@@ -29,6 +31,12 @@ export const MainNavigation = () => {
                     path="/user/cart"
                     render={() => <ShoppingCart />}
                 />
+                <Route
+                    exact
+                    path="/user/report-bug"
+                    render={() => <ReportBug />}
+                />
+                <Route path="*" render={() => <Error404 />} />
             </Switch>
         </React.Fragment>
     );

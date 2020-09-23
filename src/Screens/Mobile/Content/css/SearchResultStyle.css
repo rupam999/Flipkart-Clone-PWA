@@ -1,0 +1,44 @@
+.searchDiv {
+    position: fixed;
+    overflow-y: hidden;
+}
+
+.emptyImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease-out 0s;
+    opacity: 1,
+}
+
+.emptyResultParagraph {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.emptyResultHeading {
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 12;
+    color: #000;
+    font-size: 14px;
+}
+
+.emptyResultBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.emptyResultBtn span {
+    color: #fff;
+    font-size: 12px;
+}

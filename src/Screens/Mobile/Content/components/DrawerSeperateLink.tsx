@@ -10,7 +10,6 @@ import {
     GiftOutlined,
     PlusOutlined,
     FontSizeOutlined,
-    LogoutOutlined,
 } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { pathCheck } from "../../../Helpers/Utilities";
@@ -39,8 +38,6 @@ const DrawerSeperateLink = (props) => {
             return <PlusOutlined />;
         } else if (fieldName === "Choose Language") {
             return <FontSizeOutlined />;
-        } else if (fieldName === "Logout") {
-            return <LogoutOutlined />;
         }
     };
     return (

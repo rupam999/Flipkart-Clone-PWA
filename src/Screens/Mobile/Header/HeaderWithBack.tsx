@@ -5,7 +5,7 @@ import Colors from "../../../utils/Colors";
 import "./css/HomeScreenHeaderStyle.css";
 
 export const HeaderWithBack = (props) => {
-    const { name, icon } = props;
+    const { name, icon, curve } = props;
     const history = useHistory();
     const onOpenChange = () => {
         history.goBack();
@@ -25,9 +25,22 @@ export const HeaderWithBack = (props) => {
                 }
                 onLeftClick={onOpenChange}
             >
-                <span style={{ color: Colors.white(), fontWeight: 600 }}>
-                    {name}
-                </span>
+                {curve ? (
+                    <span
+                        style={{
+                            color: Colors.white(),
+                            fontWeight: 600,
+                            position: "relative",
+                            top: 3,
+                        }}
+                    >
+                        {name}
+                    </span>
+                ) : (
+                    <span style={{ color: Colors.white(), fontWeight: 600 }}>
+                        {name}
+                    </span>
+                )}
             </NavBar>
         </div>
     );
