@@ -10,8 +10,7 @@ import {
 import { userCheck } from "../../../components/userCheck";
 import { Store } from "../../../Context/Store";
 import { getData } from "../../../localStorage/getData";
-import { HomeScreen, Wishlist, Notification } from "../Content";
-// import { Logout } from '../SignInFlow';
+import { HomeScreen, Wishlist, Notification, Profile } from "../Content";
 import Loader from "../components/mobileLoader";
 import Colors from "../../../utils/Colors";
 import "./bottomTabStyle.css";
@@ -117,7 +116,7 @@ export const BottomTabBar = () => {
                             setSelectedTab("profileTab");
                         }}
                     >
-                        <p>Profile Tab Content</p>
+                        <Profile />
                     </TabBar.Item>
                 </TabBar>
             )}

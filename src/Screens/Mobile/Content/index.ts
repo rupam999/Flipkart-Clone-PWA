@@ -7,5 +7,6 @@ export { ProductDetails } from "./ProductDetails";
 export { Wishlist } from "./Wishlist";
 export { ShoppingCart } from "./ShoppingCart";
 export { Notification } from "./Notification";
+export { Profile } from "./Profile";
 export { Error404 } from "./Error404";
 export { ReportBug } from "./ReportBug";
