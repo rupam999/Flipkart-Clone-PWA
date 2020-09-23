@@ -19,7 +19,7 @@ export const SearchBoxSecondHeader = () => {
             Toast.offline("Please enter a text !!!", 1);
         } else {
             if (pathCheck(history, "/user/search")) {
-                history.push("/user/search", { searchData: values.searchText });
+                history.push(`/user/search?q=${values.searchText}`);
             }
         }
     };
