@@ -3,6 +3,8 @@ import { Drawer } from "antd-mobile";
 import { HomeScreenHeader } from "../Header";
 import WindowDimensions from "../../../components/WindowDimensions";
 import DrawerContent from "./components/DrawerContent";
+import Colors from "../../../utils/Colors";
+import "./css/WishListStyle.css";
 
 export const Wishlist = () => {
     const [menu, toggle] = useState(false);
@@ -38,8 +40,16 @@ export const Wishlist = () => {
                     menu={menu}
                     toggle={toggle}
                     pageHeading="My Wishlist"
+                    curve={true}
                 />
-                <div style={{ paddingTop: 101 }}>
+                <div
+                    className="extraHeader"
+                    style={{ backgroundColor: Colors.darkBlue() }}
+                ></div>
+                <div
+                    className="mainContent"
+                    style={{ backgroundColor: Colors.white() }}
+                >
                     <p>Wishlist Screen Content</p>
                 </div>
             </Drawer>

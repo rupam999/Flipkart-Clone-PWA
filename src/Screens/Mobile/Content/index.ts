@@ -8,3 +8,4 @@ export { Wishlist } from "./Wishlist";
 export { ShoppingCart } from "./ShoppingCart";
 export { Notification } from "./Notification";
 export { Error404 } from "./Error404";
+export { ReportBug } from "./ReportBug";

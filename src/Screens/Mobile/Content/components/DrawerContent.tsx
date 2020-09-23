@@ -31,7 +31,10 @@ const DrawerContent = () => {
                     <DrawerSeperateLink fieldName="Choose Language" />
                 </List>
                 <List>
-                    <DrawerSeperateLink fieldName="Report Bug" />
+                    <DrawerSeperateLink
+                        fieldName="Report Bug"
+                        callBack="/user/report-bug"
+                    />
                     <DrawerSeperateLink fieldName="Logout" />
                 </List>
             </div>
