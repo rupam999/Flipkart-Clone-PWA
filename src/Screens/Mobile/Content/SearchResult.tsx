@@ -48,7 +48,7 @@ export const SearchResult = (props) => {
             className="searchDiv"
             style={{ top: document.documentElement.clientHeight * 0.3 }}
         >
-            <img src={EMPTY_RES} width={"30%"} className="emptyImage" />
+            <img src={EMPTY_RES} alt="image" width={"30%"} className="emptyImage" />
             <p className="emptyResultParagraph">Sorry, no results found!</p>
             <h3 className="emptyResultHeading">
                 Please check the spelling or try searching for something else
