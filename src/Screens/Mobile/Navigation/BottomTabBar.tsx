@@ -1,25 +1,25 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { TabBar } from "antd-mobile";
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { TabBar } from 'antd-mobile';
 import {
     HomeOutlined,
     UserOutlined,
     BellOutlined,
     HeartOutlined,
-} from "@ant-design/icons";
-import { userCheck } from "../../../components/userCheck";
-import { Store } from "../../../Context/Store";
-import { getData } from "../../../localStorage/getData";
-import { HomeScreen, Wishlist, Notification, Profile } from "../Content";
-import Loader from "../components/mobileLoader";
-import Colors from "../../../utils/Colors";
-import "./bottomTabStyle.css";
+} from '@ant-design/icons';
+import { userCheck } from '../../../components/userCheck';
+import { Store } from '../../../Context/Store';
+import { getData } from '../../../localStorage/getData';
+import { HomeScreen, Wishlist, Notification, Profile } from '../Content';
+import Loader from '../components/mobileLoader';
+import Colors from '../../../utils/Colors';
+import './bottomTabStyle.css';
 
 export const BottomTabBar = () => {
-    const [selectedTab, setSelectedTab] = useState("homeTab");
+    const [selectedTab, setSelectedTab] = useState('homeTab');
     const [loading, setLoading] = useState(true);
     const { setUser } = useContext(Store);
-    const loggedUser = getData("user");
+    const loggedUser = getData('user');
     const history = useHistory();
     useEffect(() => {
         if (userCheck(history)) {
@@ -34,7 +34,7 @@ export const BottomTabBar = () => {
 
     return (
         <div
-            style={{ position: "fixed", height: "100%", width: "100%", top: 0 }}
+            style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}
         >
             {loading ? (
                 <Loader />
@@ -57,9 +57,9 @@ export const BottomTabBar = () => {
                         }
                         title="Home"
                         key="home"
-                        selected={selectedTab === "homeTab"}
+                        selected={selectedTab === 'homeTab'}
                         onPress={() => {
-                            setSelectedTab("homeTab");
+                            setSelectedTab('homeTab');
                         }}
                     >
                         <HomeScreen />
@@ -75,9 +75,9 @@ export const BottomTabBar = () => {
                         }
                         title="Wishlist"
                         key="wishlist"
-                        selected={selectedTab === "wishlistTab"}
+                        selected={selectedTab === 'wishlistTab'}
                         onPress={() => {
-                            setSelectedTab("wishlistTab");
+                            setSelectedTab('wishlistTab');
                         }}
                     >
                         <Wishlist />
@@ -93,9 +93,9 @@ export const BottomTabBar = () => {
                         }
                         title="Notification"
                         key="notification"
-                        selected={selectedTab === "notificationTab"}
+                        selected={selectedTab === 'notificationTab'}
                         onPress={() => {
-                            setSelectedTab("notificationTab");
+                            setSelectedTab('notificationTab');
                         }}
                     >
                         <Notification />
@@ -111,9 +111,9 @@ export const BottomTabBar = () => {
                         }
                         title="Profile"
                         key="profile"
-                        selected={selectedTab === "profileTab"}
+                        selected={selectedTab === 'profileTab'}
                         onPress={() => {
-                            setSelectedTab("profileTab");
+                            setSelectedTab('profileTab');
                         }}
                     >
                         <Profile />

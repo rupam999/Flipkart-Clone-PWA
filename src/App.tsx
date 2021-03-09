@@ -6,14 +6,17 @@ import WindowDimensions from './components/WindowDimensions';
 import { StoreProvider } from './Context/Store';
 import { Login, Register, VerifyOTP, UserInformationForm } from './Screens/Mobile/SignInFlow';
 import { MainNavigation } from './Screens/Mobile/Navigation';
+import { DesktopHomeScreen } from './Screens/Desktop/Content';
 
 const App = () => {
   const {width} = WindowDimensions();
   if(width > 900){
     return (
-      <Router>
-        <p>Desktop Device Screen</p>
-      </Router>
+      <StoreProvider>
+        <Router>
+          <Route exact path="/" component={DesktopHomeScreen} />
+        </Router>
+      </StoreProvider>
     );
   } else {
     {/* Mobile Device Screen */}

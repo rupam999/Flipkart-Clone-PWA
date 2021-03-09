@@ -4,7 +4,7 @@ const urlsToCache = [
     'offline.html',
 ];
 
-const self = this;
+const self = this;  
 
 // Install SW
 self.addEventListener('install', (event) => {

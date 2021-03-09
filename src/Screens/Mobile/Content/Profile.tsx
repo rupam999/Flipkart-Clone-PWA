@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Drawer, List } from "antd-mobile";
+import React, { useState } from 'react';
+import { Drawer, List } from 'antd-mobile';
 import {
     ShoppingCartOutlined,
     ShoppingOutlined,
@@ -8,19 +8,19 @@ import {
     DeleteOutlined,
     BugOutlined,
     LogoutOutlined,
-} from "@ant-design/icons";
-import { getData } from "../../../localStorage/getData";
-import { HomeScreenHeader } from "../Header";
-import WindowDimensions from "../../../components/WindowDimensions";
-import DrawerContent from "./components/DrawerContent";
-import Colors from "../../../utils/Colors";
-import PROFILE_AVATER from "../../../assets/Profile.png";
-import "./css/ProfileStyle.css";
+} from '@ant-design/icons';
+import { getData } from '../../../localStorage/getData';
+import { HomeScreenHeader } from '../Header';
+import WindowDimensions from '../../../components/WindowDimensions';
+import DrawerContent from './components/DrawerContent';
+import Colors from '../../../utils/Colors';
+import PROFILE_AVATER from '../../../assets/Profile.png';
+import './css/ProfileStyle.css';
 const Item = List.Item;
 
 export const Profile = () => {
     const [menu, toggle] = useState(false);
-    const user = getData("user");
+    const user = getData('user');
     const { width } = WindowDimensions();
 
     const onOpenChange = () => {
@@ -36,8 +36,8 @@ export const Profile = () => {
     return (
         <div
             style={{
-                width: "100%",
-                minHeight: "100%",
+                width: '100%',
+                minHeight: '100%',
             }}
         >
             <Drawer
@@ -62,6 +62,7 @@ export const Profile = () => {
                     >
                         <img
                             src={PROFILE_AVATER}
+                            alt="profile avater"
                             width={80}
                             height={80}
                             className="profileAvater"
@@ -73,7 +74,7 @@ export const Profile = () => {
                     </div>
                     <div className="mainOptions">
                         <List
-                            renderHeader={() => "Account Settings & Orders"}
+                            renderHeader={() => 'Account Settings & Orders'}
                             className="my-list"
                         >
                             <Item
