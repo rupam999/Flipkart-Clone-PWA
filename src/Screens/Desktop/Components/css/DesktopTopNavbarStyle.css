@@ -1,0 +1,35 @@
+.navbar {
+    width: 100%;
+}
+
+.navbarContainer {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.desktopLogo {
+    width: 100px;
+}
+
+.searchBox {
+    min-height: 35px!important;
+}
+
+.userSecction {
+    color: #fff;
+}
+
+.shoppingCart {
+    color: #fff;
+    font-size: 20px;
+}
+
+.cartText {
+    font-size: 16px;
+}
+
+.centerStyle {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
