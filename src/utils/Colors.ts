@@ -22,6 +22,9 @@ const Colors = {
     },
     fontGray: (a = 1) => {
         return `rgba(135, 135, 135, ${a})`;
+    },
+    footerColor: (a = 1) => {
+        return `rgba(23, 35, 55, ${a})`;
     }
 }
 
