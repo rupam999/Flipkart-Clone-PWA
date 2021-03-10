@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import DesktopFooter from '../Components/DesktopFooter';
 import DesktopHomeDealsOfTheDay from '../Components/DesktopHomeDealsOfTheDay';
 import DesktopHomeSuggestedForYou from '../Components/DesktopHomeSuggestedForYou';
 import DesktopNavbar from '../Components/DesktopNavbar';
@@ -13,10 +14,7 @@ export const DesktopHomeScreen = () => {
                 <DesktopSlider />
                 <DesktopHomeDealsOfTheDay />
                 <DesktopHomeSuggestedForYou />
-                <br />
-                <br />
-                <br />
-                <br />
+                <DesktopFooter />
             </div>
         </div>
     );
