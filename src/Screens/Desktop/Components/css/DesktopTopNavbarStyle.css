@@ -11,6 +11,10 @@
     width: 100px;
 }
 
+.desktopLogo:hover {
+    cursor: pointer;
+}
+
 .searchBox {
     min-height: 35px!important;
 }

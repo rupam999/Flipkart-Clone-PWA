@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import { Affix, Button, Row, Col, Form, Input, Checkbox, Select, Menu, Dropdown } from 'antd';
 import { DownOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import Colors from '../../../utils/Colors';
@@ -10,6 +11,7 @@ const { Option } = Select;
 
 const DesktopTopNavbar = () => {
     const [top, setTop] = useState(0);
+    const history = useHistory();
 
     const onFinish = (values: any) => {
         console.log('Success:', values);
@@ -51,7 +53,12 @@ const DesktopTopNavbar = () => {
                                 span={3}
                                 className="centerStyle"
                             >
-                                <img src={LOGO} className="desktopLogo" />
+                                <img 
+                                    src={LOGO} 
+                                    className="desktopLogo" 
+                                    onClick={() => history.push('/')}
+                                    alt="LOGO"
+                                />
                             </Col>
                             <Col span={10}>
                                 <Form
