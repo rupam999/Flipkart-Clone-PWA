@@ -1,0 +1,30 @@
+.Desktop404Container {
+    background-color: #fff;
+    margin-top: 10px;
+    width: 100%;
+    padding: 25px 7.5px;
+    text-align: center;
+}
+
+.Desktop404Container .Desktop404Image {
+    padding: 25px auto;
+    margin: auto;
+    padding: auto;
+
+}
+
+.Desktop404Container h3 {
+    font-size: 26px;
+    font-weight: 500;
+    margin: 20px 0px 10px;
+    text-align: center;
+}
+
+.Desktop404Container p {
+    color: rgb(135, 135, 135);
+    font-size: 20px;
+    margin-bottom: 8px;
+    text-align: center;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+}
