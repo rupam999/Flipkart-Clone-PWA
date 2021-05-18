@@ -4,6 +4,7 @@ import {Row, Col} from 'antd';
 import DesktopFooter from '../Components/DesktopFooter';
 import DesktopNavbar from '../Components/DesktopNavbar';
 import DesktopSearchFilter from '../Components/DesktopSearchFilter';
+import DesktopSingleProduct from '../Components/DesktopSingleProduct';
 import './css/DesktopSearchResultStyle.css';
 
 export const DesktopSearchResult = () => {
@@ -21,7 +22,9 @@ export const DesktopSearchResult = () => {
                     </Col>
                     <Col span={19}>
                         <div className="rightSidePanel">
-                            <p>kjhk</p>
+                            <DesktopSingleProduct />
+                            <DesktopSingleProduct />
+                            <DesktopSingleProduct />
                         </div>
                     </Col>
                 </Row>

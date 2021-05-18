@@ -8,12 +8,12 @@
 .searchResult .leftSidePanel {
     background-color: #fff;
     margin-right: 10px;
-    min-height: 500px;
+    min-height: 100%;
     box-shadow: 0 1px 8px 0 rgb(0 0 0 / 5%);
 }
 
 .searchResult .rightSidePanel {
     background-color: #fff;
-    min-height: 500px;
+    min-height: 100%;
     box-shadow: 0 1px 8px 0 rgb(0 0 0 / 5%);
 }
