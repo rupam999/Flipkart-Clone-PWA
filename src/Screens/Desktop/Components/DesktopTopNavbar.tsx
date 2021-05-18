@@ -14,7 +14,12 @@ const DesktopTopNavbar = () => {
     const history = useHistory();
 
     const onFinish = (values: any) => {
-        console.log('Success:', values);
+        if(values.search.trim()) {
+            console.log('Success:', values);
+            history.push(`/search/${values.search}`);
+        } else {
+            console.log('Empty');
+        }
     };
     
     const onFinishFailed = (errorInfo: any) => {
@@ -63,17 +68,16 @@ const DesktopTopNavbar = () => {
                             <Col span={10}>
                                 <Form
                                     name="basic"
-                                    initialValues={{ remember: true }}
+                                    initialValues={{  }}
                                     onFinish={onFinish}
                                     onFinishFailed={onFinishFailed}
                                 >
                                     <Form.Item
-                                        name="username"
-                                        rules={[{ required: true, message: 'Please input your username!' }]}
+                                        name="search"
                                     >
                                         <Input 
                                             className="searchBox" 
-                                            addonBefore={prefixSelector}
+                                            // addonBefore={prefixSelector}
                                             placeholder="Search for products, brands and more"
                                         />
                                     </Form.Item>

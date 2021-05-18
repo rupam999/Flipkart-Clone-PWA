@@ -7,6 +7,7 @@ import { StoreProvider } from './Context/Store';
 import { Login, Register, VerifyOTP, UserInformationForm } from './Screens/Mobile/SignInFlow';
 import { MainNavigation } from './Screens/Mobile/Navigation';
 import { DesktopDealsOfTheDay, DesktopHomeScreen } from './Screens/Desktop/Content';
+import Search from './Screens/Desktop/Router/Search';
 
 const App = () => {
   const {width} = WindowDimensions();
@@ -15,6 +16,7 @@ const App = () => {
       <StoreProvider>
         <Router>
           <Route exact path="/" component={DesktopHomeScreen} />
+          <Route path="/Search" component={Search} />
           <Route exact path="/DealsOfTheDay" component={DesktopDealsOfTheDay} />
         </Router>
       </StoreProvider>
