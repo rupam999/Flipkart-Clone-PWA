@@ -9,7 +9,8 @@ import './css/DesktopTopNavbarStyle.css';
 const { SubMenu } = Menu;
 const { Option } = Select;
 
-const DesktopTopNavbar = () => {
+const DesktopTopNavbar = (props) => {
+    const {search} = props;
     const [top, setTop] = useState(0);
     const history = useHistory();
 
@@ -77,6 +78,7 @@ const DesktopTopNavbar = () => {
                                     >
                                         <Input 
                                             className="searchBox" 
+                                            value={search}
                                             // addonBefore={prefixSelector}
                                             placeholder="Search for products, brands and more"
                                         />

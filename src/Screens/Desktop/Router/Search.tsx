@@ -9,7 +9,6 @@ const Search = () => {
     
     return(
         <Router>
-          <Route exact path="/Search" component={DesktopHomeScreen} />
           <Route exact path="/Search/:searchName" component={DesktopSearchResult} />
         </Router>
     );
