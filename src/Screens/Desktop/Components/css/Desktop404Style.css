@@ -2,15 +2,16 @@
     background-color: #fff;
     margin-top: 10px;
     width: 100%;
+    min-height: 500px;
     padding: 25px 7.5px;
     text-align: center;
 }
 
 .Desktop404Container .Desktop404Image {
     padding: 25px auto;
-    margin: auto;
+    margin: 25px auto;
     padding: auto;
-
+    justify-content: center;
 }
 
 .Desktop404Container h3 {
