@@ -63,7 +63,14 @@ export const DesktopSearchResult = () => {
                             </Col>
                             <Col span={19}>
                                 <div className="rightSidePanel">
-                                    <DesktopSingleProduct />
+                                    {products.map((seperateProduct) => {
+                                        return (
+                                            <DesktopSingleProduct 
+                                                key={seperateProduct._id} 
+                                                data={seperateProduct}
+                                            />
+                                        );
+                                    })}
                                 </div>
                             </Col>
                         </React.Fragment>

@@ -1,28 +1,52 @@
 import React from 'react';
 import { Row, Col, Rate } from 'antd';
+import { useHistory } from 'react-router-dom';
 import './css/DesktopSingleProductStyle.css';
 
-const DesktopSingleProduct = () => {
+const DesktopSingleProduct = (props) => {
+    const { data } = props;
+    const history = useHistory();
+
+    // console.log(data)
+
+    const calculateOff = (mrp, price) => {
+        return Math.round(((mrp - price) / mrp) * 100);
+    }
+
+    const sendToProductDetailsPage = (id) => {
+        history.push(`/Search/fullDetails/${id}`);
+    }
+
     return(
-        <div className="singleProductDiv">
+        <div className="singleProductDiv" onClick={() => sendToProductDetailsPage(data._id)}>
             <Row>
                 <Col span={8}>
                     <div className="productImage">
-                        <img src="https://rukminim1.flixcart.com/image/416/416/kg40k280/air-conditioner-new/s/r/z/ar18ty3qbpu-1-5-split-samsung-inverter-original-imafwefyqbfqnjjy.jpeg?q=70" />
+                        <img src={data.url} alt={data.name.toString()} />
                     </div>
                 </Col>
                 <Col span={16}>
                     <div className="mainProductContent">
-                        <h3>SAMSUNG 1.5 Ton 5 Star Split Inverter AC  - White, Pastel Blue</h3>
+                        <h3>{data.name}</h3>
                         <span className="rating">
-                            <Rate allowHalf disabled defaultValue={4.5} />
-                            <span>&nbsp; (4.5★) &nbsp;</span>
-                            <span>&nbsp;1000 Ratings</span>
+                            {data.rating ? (
+                                <React.Fragment>
+                                    <Rate allowHalf disabled defaultValue={4.5} />
+                                    <span>&nbsp; (4.5★) &nbsp;</span>
+                                    <span>&nbsp;1000 Ratings</span>
+                                </React.Fragment>
+                            ) : (
+                                <span className="desktopNoRatingText">No Rating Found</span>
+                            )}
                         </span>
                         <p className="price">
-                            <span className="mainPrice">&#8377; 20,999</span>
-                            <span>&nbsp; <del>&#8377; 25000</del>&nbsp;</span>
-                            <span> (16% Off) </span>
+                            <span className="mainPrice">&#8377; {data.price}</span>
+                            {Number(data.price) !== Number(data.mrp) ? (
+                                <React.Fragment>
+                                    <span>&nbsp; <del>&#8377; {data.mrp}</del>&nbsp;</span>
+                                    <span> ({calculateOff(Number(data.mrp), Number(data.price))}% OFF) </span>
+                                </React.Fragment>
+                            ) : null }
                         </p>
                         <div className="extraInformation">
                             <p>This is a single line description</p>

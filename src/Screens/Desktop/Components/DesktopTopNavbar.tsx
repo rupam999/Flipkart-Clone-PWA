@@ -16,7 +16,7 @@ const DesktopTopNavbar = (props) => {
 
     const onFinish = (values: any) => {
         if(values.search.trim()) {
-            console.log('Success:', values);
+            // console.log('Success:', values);
             history.push(`/search/${values.search}`);
         } else {
             console.log('Empty');
