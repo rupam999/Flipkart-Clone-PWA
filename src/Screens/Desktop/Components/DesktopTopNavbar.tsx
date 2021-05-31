@@ -18,7 +18,6 @@ const DesktopTopNavbar = (props) => {
 
     const onFinish = (values: any) => {
         if(values.search.trim()) {
-            // console.log('Success:', values);
             history.push(`/search/${values.search}`);
         } else {
             console.log('Empty');
@@ -80,7 +79,7 @@ const DesktopTopNavbar = (props) => {
                                 <img 
                                     src={LOGO} 
                                     className="desktopLogo" 
-                                    onClick={() => history.push('/')}
+                                    // onClick={}
                                     alt="LOGO"
                                 />
                             </Col>
