@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import { Affix, Button, Row, Col, Form, Input, Checkbox, Select, Menu, Dropdown } from 'antd';
+import { Affix, Button, Row, Col, Form, Input, Modal, Select, Menu, Dropdown } from 'antd';
 import { DownOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import Colors from '../../../utils/Colors';
 import LOGO from '../../../assets/desktop_logo.png';
@@ -13,6 +13,8 @@ const DesktopTopNavbar = (props) => {
     const {search} = props;
     const [top, setTop] = useState(0);
     const history = useHistory();
+    const [loginModal, setLoginModal] = useState<boolean>(false);
+    const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false);
 
     const onFinish = (values: any) => {
         if(values.search.trim()) {
@@ -26,6 +28,22 @@ const DesktopTopNavbar = (props) => {
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };
+
+    const submitLogin = (values) => {
+        console.log('SUCCESS',values);
+    }
+
+    const failedLogin = (values) => {
+        console.log(values);
+    }
+
+    const submitNewUserData = (values) => {
+        console.log('SUCCESS',values);
+    }
+
+    const failedSubmitNewUserData = (values) => {
+        console.log(values);
+    }
 
     const prefixSelector = (
         <Form.Item name="prefix" noStyle>
@@ -89,15 +107,13 @@ const DesktopTopNavbar = (props) => {
                                 span={2}
                                 className="centerStyle"
                                 >
-                                <Dropdown overlay={menu}
-                                    placement="bottomCenter"
-                                >
-                                    <a className="ant-dropdown-link userSecction" 
-                                        onClick={e => e.preventDefault()}
-                                    >
-                                    Name <DownOutlined />
-                                    </a>
-                                </Dropdown>
+                                <div className="desktopUserOrLogin">
+                                    <Button
+                                        onClick={() => setLoginModal(true)}
+                                        >
+                                        Login
+                                    </Button>
+                                </div>
                             </Col>
                             <Col 
                                 span={2} 
@@ -130,6 +146,121 @@ const DesktopTopNavbar = (props) => {
                     </div>
                 </div>
             </Affix>
+            <Modal
+                className="desktopLoginModal"
+                title="login"
+                visible={loginModal}
+                footer={false}
+                onCancel={() => setLoginModal(false)}
+                width={750}
+                >
+                <div className="loginContent">
+                    <Row>
+                        <Col span={8}>
+                            {showRegisterForm ?
+                            <div className="loginRightSide">
+                                <h3>Register</h3>
+                                <h4>Sign up with your E-mail</h4>
+                                <h4>to get stared</h4>
+                            </div>
+                            :
+                            <div className="loginRightSide">
+                                <h3>Login</h3>
+                                <h4>Get access to your </h4>
+                                <h4>Orders, Wishlist and</h4>
+                                <h4>Recommendations</h4>
+                            </div>
+                            }
+                        </Col>
+                        <Col span={16}>
+                            {showRegisterForm ?
+                            <div className="desktopLoginForm">
+                                <Form
+                                    name='registration'
+                                    onFinish={submitNewUserData}
+                                    onFinishFailed={failedSubmitNewUserData}
+                                    >
+                                    <Form.Item
+                                        name='email'
+                                        rules={[{required: true, message: 'Please Enter E-mail Id'}]}
+                                        >
+                                        <Input placeholder="Enter E-mail Id" />
+                                    </Form.Item>
+
+                                    <Form.Item
+                                        name='name'
+                                        rules={[{required: true, message: 'Please Enter your Name'}]}
+                                        >
+                                        <Input placeholder="Enter Your Name" />
+                                    </Form.Item>
+
+                                    <Form.Item
+                                        name='password'
+                                        rules={[{required: true, message: 'Please Enter your Password'}]}
+                                        >
+                                        <Input.Password placeholder="Enter Password" />
+                                    </Form.Item>
+                                    
+                                    <Form.Item>
+                                        <Button
+                                            className='desktopLoginSubmit'
+                                            htmlType='submit'
+                                            >
+                                            Register
+                                        </Button>
+                                    </Form.Item>
+                                </Form>
+                                <div className='desktopUserChoiceSec2'>
+                                    <p 
+                                        onClick={() => setShowRegisterForm(false)}
+                                        >
+                                        Existing User? Click to Login
+                                    </p>
+                                </div>
+                            </div>
+                            :
+                            <div className="desktopLoginForm">
+                                <Form
+                                    name='login'
+                                    onFinish={submitLogin}
+                                    onFinishFailed={failedLogin}
+                                    >
+                                    <Form.Item
+                                        name='email'
+                                        rules={[{required: true, message: 'Please Enter your E-mail Id'}]}
+                                        >
+                                        <Input placeholder="Enter E-mail Id" />
+                                    </Form.Item>
+
+                                    <Form.Item
+                                        name='password'
+                                        rules={[{required: true, message: 'Please Enter your Pasword'}]}
+                                        >
+                                        <Input.Password placeholder="Enter Password" />
+                                    </Form.Item>
+                                    
+                                    <Form.Item>
+                                        <Button
+                                            className='desktopLoginSubmit'
+                                            htmlType='submit'
+                                            >
+                                            Login
+                                        </Button>
+                                    </Form.Item>
+                                </Form>
+                                <div className='desktopUserChoiceSec'>
+                                    <p 
+                                        onClick={() => setShowRegisterForm(true)}
+                                        >
+                                        New to Ecommerce? Create an account
+                                    </p>
+                                </div>
+                            </div>
+                            }
+                        </Col>
+                    </Row>
+                </div>
+            </Modal>
         </div>
     );
 }

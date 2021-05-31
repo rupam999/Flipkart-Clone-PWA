@@ -23,6 +23,95 @@
     color: #fff;
 }
 
+.desktopUserOrLogin {
+    width: 100%;
+}
+
+.desktopUserOrLogin Button {
+    margin-left: 10px;
+    width: 90%;
+    background-color: #fff;
+    color: #2974F0;
+    font-weight: 700;
+    border: 1.5px solid #fff;
+}
+
+.desktopLoginModal .ant-modal-header {
+    display: none;
+}
+
+.desktopLoginModal .ant-modal-body {
+    padding: 0px!important;
+}
+
+.desktopLoginModal .loginContent{
+    min-height: 300px;
+    height: 100%;
+}
+
+.desktopLoginModal .loginContent .loginRightSide {
+    min-height: 300px;
+    height: 100%;
+    background-color: #2874f0;
+    padding: 25px;
+    padding-top: 40px;
+    padding-left: 30px;
+}
+
+.desktopLoginModal .loginContent .loginRightSide h3 {
+    font-size: 25px;
+    line-height: 150%;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.desktopLoginModal .loginContent .loginRightSide h4 {
+    font-size: 18px;
+    text-align: left;
+}
+
+.desktopLoginModal .desktopLoginForm {
+    padding: 40px 40px;
+}
+
+.desktopLoginModal .desktopLoginForm Input, .ant-input-password {
+    height: 45px;
+    width: 95%;
+    margin-bottom: 15px;
+    border: 0px;
+    border-bottom: 1px solid #2874f0;
+    padding: 0px;
+}
+
+.desktopLoginModal .loginContent .desktopLoginSubmit {
+    width: 95%;
+    height: 45px;
+    margin-top: 25px;
+    background: #fb641b;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
+    border: none;
+    color: #fff;
+}
+
+.desktopLoginModal .desktopUserChoiceSec {
+    margin-top: 150px;
+}
+
+.desktopLoginModal .desktopUserChoiceSec2 {
+    margin-top: 90px;
+}
+
+.desktopLoginModal .desktopUserChoiceSec, .desktopUserChoiceSec2 p {
+    text-align: center;
+    color: #2874f0;
+    font-weight: 700;
+}
+
+.desktopLoginModal .desktopUserChoiceSec, .desktopUserChoiceSec2 p:hover {
+    cursor: pointer;
+}
+
 .shoppingCart {
     color: #fff;
     font-size: 20px;
