@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import { Affix, Button, Row, Col, Form, Input, Checkbox, Select, Menu, Dropdown } from 'antd';
 import { DownOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import Colors from '../../../utils/Colors';
@@ -8,11 +9,18 @@ import './css/DesktopTopNavbarStyle.css';
 const { SubMenu } = Menu;
 const { Option } = Select;
 
-const DesktopTopNavbar = () => {
+const DesktopTopNavbar = (props) => {
+    const {search} = props;
     const [top, setTop] = useState(0);
+    const history = useHistory();
 
     const onFinish = (values: any) => {
-        console.log('Success:', values);
+        if(values.search.trim()) {
+            // console.log('Success:', values);
+            history.push(`/search/${values.search}`);
+        } else {
+            console.log('Empty');
+        }
     };
     
     const onFinishFailed = (errorInfo: any) => {
@@ -51,22 +59,27 @@ const DesktopTopNavbar = () => {
                                 span={3}
                                 className="centerStyle"
                             >
-                                <img src={LOGO} className="desktopLogo" />
+                                <img 
+                                    src={LOGO} 
+                                    className="desktopLogo" 
+                                    onClick={() => history.push('/')}
+                                    alt="LOGO"
+                                />
                             </Col>
                             <Col span={10}>
                                 <Form
                                     name="basic"
-                                    initialValues={{ remember: true }}
+                                    initialValues={{  }}
                                     onFinish={onFinish}
                                     onFinishFailed={onFinishFailed}
                                 >
                                     <Form.Item
-                                        name="username"
-                                        rules={[{ required: true, message: 'Please input your username!' }]}
+                                        name="search"
                                     >
                                         <Input 
                                             className="searchBox" 
-                                            addonBefore={prefixSelector}
+                                            value={search}
+                                            // addonBefore={prefixSelector}
                                             placeholder="Search for products, brands and more"
                                         />
                                     </Form.Item>

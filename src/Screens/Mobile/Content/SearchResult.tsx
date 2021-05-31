@@ -30,7 +30,7 @@ export const SearchResult = (props) => {
         setPageLoader(true);
         const response = await getProducts(query.q.toString());
         if (response !== 1) {
-            setSearchResult(response);
+            // setSearchResult(response);
             setPageLoader(false);
         }
     };

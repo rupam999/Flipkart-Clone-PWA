@@ -1,0 +1,28 @@
+.DealsOfTheDayContainer {
+    margin-top: 10px;
+    background-color: #fff;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.DealsOfTheDayContainer .DealsOfTheTitle {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.DealsOfTheDayContainer .DealsOfTheTitle h3 {
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    color: #212121;
+    line-height: 1.4;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+}
+
+.AllTheDealsOfTheDayProducts {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}

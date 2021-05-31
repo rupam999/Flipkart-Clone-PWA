@@ -1,0 +1,63 @@
+.singleProductDiv {
+    padding: 10px;
+    padding-top: 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.singleProductDiv .productImage {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.singleProductDiv .productImage img{
+    min-width: 20%;
+    max-width: 90%;
+}
+
+.singleProductDiv .mainProductContent {
+    padding-left: 15px;
+}
+
+.singleProductDiv .mainProductContent h3 {
+    font-weight: 500;
+    font-size: 18px;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.singleProductDiv .mainProductContent .rating {
+    margin-top: 6px;
+}
+
+.singleProductDiv .mainProductContent p {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.singleProductDiv .mainProductContent .price {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.singleProductDiv .mainProductContent .mainPrice {
+    font-size: 25px;
+    font-weight: 500;
+    color: #212121;
+    cursor: pointer;
+}
+
+.singleProductDiv .mainProductContent .extraInformation p{
+    display: block;
+    color: #212121;
+    line-height: 22px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.singleProductDiv .desktopNoRatingText {
+    font-size: 16px;
+    padding-top: 5px;
+}

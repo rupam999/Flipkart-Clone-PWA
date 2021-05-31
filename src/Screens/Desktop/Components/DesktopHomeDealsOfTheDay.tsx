@@ -1,8 +1,10 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import './css/DesktopDealsOfTheDayStyle.css';
 
 const DesktopHomeDealsOfTheDay = () => {
+    const history = useHistory();
     return(
         <>
         <div className="DealsContent">
@@ -10,6 +12,7 @@ const DesktopHomeDealsOfTheDay = () => {
                 <Col span={20}>
                     <div className="dealsOfTheDayHomeScreenItem">
                         All the products will display here
+                        <p onClick={() => history.push('/DealsOfTheDay')}>DEALS OF THE DAY</p>
                     </div>
                 </Col>
                 <Col span={4}>

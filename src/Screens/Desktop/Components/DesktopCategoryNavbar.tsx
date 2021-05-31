@@ -1,10 +1,11 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Row, Col, Menu, Dropdown, message } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-
 import './css/DesktopCategoryNavbarStyle.css';
 
 const DesktopCategoryNavbar = () => {
+    const history = useHistory()
 
     const menu = (
         <Menu>
@@ -21,7 +22,12 @@ const DesktopCategoryNavbar = () => {
                     span={3}
                     className="centerStyle"
                     >
-                    <a className="ant-dropdown-link subMenuLinks" onClick={e => e.preventDefault()}>
+                    <a 
+                        className="ant-dropdown-link subMenuLinks" 
+                        onClick={e => {
+                            e.preventDefault()
+                            history.push('/DealsOfTheDay');
+                        }}>
                         Top Offers
                     </a>
                 </Col>

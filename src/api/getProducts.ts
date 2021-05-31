@@ -1,15 +1,14 @@
 import { GET_PRODUCT } from "./Config";
 import { getRequest } from "./getRequest";
 
-export const getProducts = async (keyword: string = "") => {
+export const getProducts = async (search?, page?) => {
     try {
-        const response = await getRequest(GET_PRODUCT, { keyword });
-        if (response.data.error === 0) {
-            return response.data.result;
-        } else {
-            return 1;
-        }
+        const response = await getRequest(GET_PRODUCT, { 
+            search, 
+            page 
+        });
+        return response.data;
     } catch {
-        return 1;
+        return -1;
     }
 };
