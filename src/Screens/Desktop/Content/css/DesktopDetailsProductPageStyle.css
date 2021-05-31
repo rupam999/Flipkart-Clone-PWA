@@ -6,7 +6,7 @@
     padding-top: 25px;
 }
 
-.desktopSeperateProduct .DesktopBuyBtn {
+.desktopSeperateProduct .DesktopBuyBtn, .DesktopOutOfStockBtn {
     margin-left: 5%;
 }
 
@@ -15,7 +15,7 @@
     padding-left: 10%;
 }
 
-.desktopSeperateProduct .DesktopBuyBtn .btn {
+.desktopSeperateProduct .DesktopBuyBtn .btn, .outOfStock {
     width: 40%;
     margin-right: 5%;
     height: 50px;
@@ -26,6 +26,14 @@
     font-size: 16px;
     font-weight: 550;
     margin-top: 45px;
+}
+
+.desktopSeperateProduct .DesktopBuyBtn .outOfStock {
+    width: 85% !important;
+    box-shadow: 0 4px 6px 0 rgb(0 0 0 / 12%);
+    border: none;
+    background: #dbdad7;
+    color: #212121;
 }
 
 .desktopSeperateProduct .DesktopBuyBtn .addToCartBtn {
@@ -44,6 +52,11 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 1.4;
+}
+
+.desktopProductContent .desktopNoRatingText {
+    font-size: 16px;
+    padding-top: 5px;
 }
 
 .desktopProductContent .price {

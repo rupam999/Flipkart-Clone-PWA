@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Button, Rate, Form, Input, Modal } from 'antd';
 import { ShoppingCartOutlined, SendOutlined, TagFilled } from '@ant-design/icons';
 import { useParams } from 'react-router-dom';
@@ -6,9 +6,34 @@ import DesktopFooter from '../Components/DesktopFooter';
 import DesktopNavbar from '../Components/DesktopNavbar';
 import './css/DesktopDetailsProductPageStyle.css';
 import DesktopProductDecription from '../Components/DesktopProductDescription';
+import { getSeperateProduct } from '../../../api/getSeperateProduct';
+import Desktop404 from '../Components/Desktop404';
+import Loading from '../Components/Loading';
 
 export const DesktopDetailProductPage = (props) => {
     const { productId } = useParams<{productId: any}>();
+    const [loading, setLoading] = useState<Boolean>(false);
+    const [product, setProduct] = useState<any>();
+
+    const getFullProductDetails = async (productId) => {
+        try {
+            setLoading(true);
+            const response = await getSeperateProduct({id: productId});
+
+            if(response === -1) {
+                setProduct(null);
+            } else {
+                setProduct(response);
+            }
+            setLoading(false);
+        } catch(error) {
+            setProduct(null);
+        }
+    }
+
+    useEffect(() => {
+        getFullProductDetails(productId);
+    }, [productId]);
 
     const checkPinNumber = (values) => {
         console.log('Success', values);
@@ -21,33 +46,50 @@ export const DesktopDetailProductPage = (props) => {
         });
     }
 
+    const calculateOff = (mrp, price) => {
+        return Math.round(((mrp - price) / mrp) * 100);
+    }
+
     return(
         <div style={{width: '100%'}}>
             <DesktopNavbar />
+            {loading ? 
+                <Loading title='Searching...' /> 
+            : null}
+            {product ?
             <div className="desktopSeperateProduct">
                 <Row>
                     <Col span={10}>
                         <div>
                             <img 
                                 className="desktopProductImage" 
-                                alt="" 
-                                src="https://rukminim1.flixcart.com/image/416/416/kbs9k7k0/television/c/j/3/samsung-ua32t4340akxxl-original-imaft25qdysfsq7k.jpeg?q=70" 
+                                alt={product.name} 
+                                src={product.url} 
                             />
-                            <div className="DesktopBuyBtn">
-                                <Button className="btn addToCartBtn">
-                                    <ShoppingCartOutlined /> Add to Cart
-                                </Button>
-                                <Button className="btn buyNow">
-                                    <SendOutlined />Buy Now
-                                </Button>
-                            </div>
+
+                            {(product.countInStock > 0) ? (
+                                <div className="DesktopBuyBtn">
+                                    <Button className="btn addToCartBtn">
+                                        <ShoppingCartOutlined /> Add to Cart
+                                    </Button>
+                                    <Button className="btn buyNow">
+                                        <SendOutlined />Buy Now
+                                    </Button>
+                                </div>
+                            ) : (
+                                <div className="DesktopBuyBtn">
+                                    <Button className="outOfStock">
+                                        Out Of Stock
+                                    </Button>
+                                </div>
+                            )}
                         </div>
                     </Col>
                     <Col span={14}>
                         <div className="desktopProductContent">
-                            <h3>SAMSUNG 80 cm (32 inch) HD Ready LED Smart TV 2020 Edition  (UA32T4340AKXXL)</h3>
+                            <h3>{product.name}</h3>
                             <span className="rating">
-                                {true ? (
+                                {product.rating ? (
                                     <React.Fragment>
                                         <Rate allowHalf disabled defaultValue={4.5} />
                                         <span>&nbsp; (4.5★) &nbsp;</span>
@@ -59,12 +101,12 @@ export const DesktopDetailProductPage = (props) => {
                             </span>
                             <p className="price">
                                 <span className="mainPrice">&#8377; {20999}</span>
-                                {/* {Number(data.price) !== Number(data.mrp) ? ( */}
+                                {Number(product.price) !== Number(product.mrp) ? (
                                     <React.Fragment>
                                         <span>&nbsp; <del>&#8377; {20999}</del>&nbsp;</span>
-                                        {/* <span> ({calculateOff(Number(data.mrp), Number(data.price))}% OFF) </span> */}
+                                        <span> ({calculateOff(Number(product.mrp), Number(product.price))}% OFF) </span>
                                     </React.Fragment>
-                                {/* ) : null } */}
+                                ) : null }
                             </p>
                             <div className="desktopAvailableOffer">
                                 <p>
@@ -113,27 +155,32 @@ export const DesktopDetailProductPage = (props) => {
                             
                             <DesktopProductDecription
                                 heading='Highlights'
-                                text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis eius debitis?'
+                                text={product.highlights}
                             />
 
                             <DesktopProductDecription
                                 heading='Description'
-                                text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis eius debitis?'
+                                text={product.description}
                             />
 
                             <DesktopProductDecription
                                 heading='Specifications'
-                                text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis eius debitis?'
+                                text={product.specifications}
                             />
 
                             <DesktopProductDecription
                                 heading='Warranty'
-                                text='1 Year Comprehensive Warranty on Product and 1 Year Additional warranty on Panel'
+                                text={product.warranty ? product.warranty : 'No Warrenty'}
+                            />
+
+                            <DesktopProductDecription
+                                heading='Origin'
+                                text={product.origin}
                             />
 
                             <DesktopProductDecription
                                 heading='Manufacturer'
-                                text='Samsung india Electronics PVTLTD 6th floor' 
+                                text={product.manufacturer}
                             />
                                 
                             <p>&nbsp;</p>
@@ -141,6 +188,9 @@ export const DesktopDetailProductPage = (props) => {
                     </Col>
                 </Row>
             </div>
+            :
+            <Desktop404 />
+            }
             <DesktopFooter />
         </div>
     );
