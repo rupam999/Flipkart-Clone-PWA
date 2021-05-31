@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import DesktopFooter from '../Components/DesktopFooter';
 import DesktopNavbar from '../Components/DesktopNavbar';
 import './css/DesktopDetailsProductPageStyle.css';
+import DesktopProductDecription from '../Components/DesktopProductDescription';
 
 export const DesktopDetailProductPage = (props) => {
     const { productId } = useParams<{productId: any}>();
@@ -110,51 +111,31 @@ export const DesktopDetailProductPage = (props) => {
                                 </Form.Item>
                             </Form>
                             
-                            <div className="productDescription">
-                                <Row>
-                                    <Col span={4}>
-                                        <span className="description">Highlights</span>
-                                    </Col>
-                                    <Col span={18}>
-                                        <p className="actualDescription">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat 
-                                            earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis 
-                                            eius debitis?
-                                        </p>
-                                    </Col>
-                                </Row>
-                            </div>
+                            <DesktopProductDecription
+                                heading='Highlights'
+                                text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis eius debitis?'
+                            />
 
-                            <div className="productDescription">
-                                <Row>
-                                    <Col span={4}>
-                                        <span className="description">Description</span>
-                                    </Col>
-                                    <Col span={18}>
-                                        <p className="actualDescription">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat 
-                                            earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis 
-                                            eius debitis?
-                                        </p>
-                                    </Col>
-                                </Row>
-                            </div>
+                            <DesktopProductDecription
+                                heading='Description'
+                                text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis eius debitis?'
+                            />
 
-                            <div className="productSpecification">
-                                <Row>
-                                    <Col span={4}>
-                                        <span className="specification">Specifications</span>
-                                    </Col>
-                                    <Col span={18}>
-                                        <p className="actualSpecification">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat 
-                                            earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis 
-                                            eius debitis?
-                                        </p>
-                                    </Col>
-                                </Row>
-                            </div>
+                            <DesktopProductDecription
+                                heading='Specifications'
+                                text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid et rem vero expedita ex distinctio quaerat earum delectus nesciunt numquam. Incidunt harum fuga explicabo non dicta, neque corporis eius debitis?'
+                            />
 
+                            <DesktopProductDecription
+                                heading='Warranty'
+                                text='1 Year Comprehensive Warranty on Product and 1 Year Additional warranty on Panel'
+                            />
+
+                            <DesktopProductDecription
+                                heading='Manufacturer'
+                                text='Samsung india Electronics PVTLTD 6th floor' 
+                            />
+                                
                             <p>&nbsp;</p>
                         </div>
                     </Col>

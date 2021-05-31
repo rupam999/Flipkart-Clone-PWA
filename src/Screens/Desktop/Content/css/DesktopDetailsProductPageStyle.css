@@ -93,34 +93,4 @@
     color: #2974F0;
     border: 0px;
     border-bottom: 0.5px solid #2974F0;
-}.desktopSeperateProduct .productDescription {
-    width: 100%;
-    margin-top: 25px;
-}
-
-.desktopSeperateProduct .productDescription .description {
-    color: #878787;
-    width: 110px;
-    padding-right: 10px;
-    font-weight: 700;
-}
-
-.desktopSeperateProduct .productDescription .actualDescription {
-    color: #212121;
-}
-
-.desktopSeperateProduct .productSpecification {
-    width: 100%;
-    margin-top: 25px;
-}
-
-.desktopSeperateProduct .productSpecification .specification {
-    color: #878787;
-    width: 110px;
-    padding-right: 10px;
-    font-weight: 700;
-}
-
-.desktopSeperateProduct .productSpecification .actualSpecification {
-    color: #212121;
 }
