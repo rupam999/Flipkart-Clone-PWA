@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import './css/DesktopHomeSuggestedForYouStyle.css';
+import DesktopHomeSingleProduct from './DesktopHomeSingleProduct';
 
 const DesktopHomeSuggestedForYou = () => {
     return(
@@ -9,7 +10,18 @@ const DesktopHomeSuggestedForYou = () => {
             <Row>
                 <Col span={24}>
                     <div className="SuggestedProductHomeItem">
-                        All the products will display here
+                        <div>
+                            <h2>Heading</h2>
+                        </div>
+                        <div style={{display: 'flex',justifyContent: 'flex-start'}}>
+                            <DesktopHomeSingleProduct />
+                            <DesktopHomeSingleProduct />
+                            <DesktopHomeSingleProduct />
+                            <DesktopHomeSingleProduct />
+                            <DesktopHomeSingleProduct />
+                            <DesktopHomeSingleProduct />
+                            <DesktopHomeSingleProduct />
+                        </div>
                     </div>
                 </Col>
             </Row>
