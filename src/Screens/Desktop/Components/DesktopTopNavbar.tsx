@@ -1,10 +1,16 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import { Affix, Button, Row, Col, Form, Input, Modal, Select, Menu, Dropdown } from 'antd';
+import { Affix, Button, Row, Col, Form, Input, Modal, Select, Menu, Dropdown, message } from 'antd';
 import { DownOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import Colors from '../../../utils/Colors';
 import LOGO from '../../../assets/desktop_logo.png';
 import './css/DesktopTopNavbarStyle.css';
+import { handleLogin } from '../../../api/handleLogin';
+import Loading from './Loading';
+import { handleSignup } from '../../../api/handleSignup';
+import { Store } from '../../../Context/Store';
+import { storeData } from '../../../localStorage/storeData';
+import { getData } from '../../../localStorage/getData';
 
 const { SubMenu } = Menu;
 const { Option } = Select;
@@ -13,8 +19,32 @@ const DesktopTopNavbar = (props) => {
     const {search} = props;
     const [top, setTop] = useState(0);
     const history = useHistory();
+    const {user, setUser} = useContext(Store);
     const [loginModal, setLoginModal] = useState<boolean>(false);
     const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false);
+    const [loading, setLoading] = useState<Boolean>(false);
+
+    const checkUserLogginOrNot = async () => {
+        const userInfo = await getData('user');
+        if(userInfo && userInfo.id) {
+            setUser(userInfo);
+            setLoading(false);
+        } else {
+            setUser({});
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        setLoading(true)
+        checkUserLogginOrNot();
+    }, []);
+
+    const logout = () => {
+        localStorage.clear();
+        setUser({});
+        message.success('You have logout Successfully!');
+    }
 
     const onFinish = (values: any) => {
         if(values.search.trim()) {
@@ -25,23 +55,105 @@ const DesktopTopNavbar = (props) => {
     };
     
     const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
+        Modal.error({
+            title: 'Error',
+            content: 'Internal Server Error, Please try after sometime...'
+        });
     };
 
-    const submitLogin = (values) => {
-        console.log('SUCCESS',values);
+    const submitLogin = async (values) => {
+        try {
+            setLoading(true);
+            const response = await handleLogin(values);
+            
+            if(response && response.message.toString() === 'Wrong Password') {
+                setLoading(false);
+                setLoginModal(false);
+                Modal.error({
+                    title: 'Error',
+                    content: 'You have entred wrong password!'
+                });
+            } else if (response && response.message.toString() === 'No User Found') {
+                setLoading(false);
+                setLoginModal(false);
+                Modal.error({
+                    title: 'Error',
+                    content: `There is no user with "${values.email}" mail id`
+                });
+            } else if(response && response.message.toString() === 'success') {
+                setUser(response);
+                storeData('user', response);
+                setLoading(false);
+                setLoginModal(false);
+                message.success('Successfully loggedin!');
+            } else {
+                setLoading(false);
+                setLoginModal(false);
+                Modal.error({
+                    title: 'Error',
+                    content: 'Internal Server Error, Please try after sometime...'
+                });
+            }
+
+        } catch(error) {
+            setLoading(false);
+            setLoginModal(false);
+            console.log('Error at Submit login', error);
+            Modal.error({
+                title: 'Error',
+                content: 'Internal Server Error, Please try after sometime...'
+            });
+        }
     }
 
     const failedLogin = (values) => {
-        console.log(values);
+        setLoginModal(false);
+        setLoading(false);
+        Modal.error({
+            title: 'Error',
+            content: 'Internal Server Error, Please try after sometime...'
+        });
     }
 
-    const submitNewUserData = (values) => {
-        console.log('SUCCESS',values);
+    const submitNewUserData = async (values) => {
+        setLoading(true);
+        values.userType = 'buyer';
+        values.approved = true;
+        const response: any = await handleSignup(values);
+
+        if(response && response.message.toString() === 'User Exists') {
+            setLoading(false);
+            setLoginModal(false);
+            Modal.error({
+                title: 'Error',
+                content: 'A user exists with this email id'
+            });
+        } else if(response && response.message.toString() === 'success') {
+            setUser(response);
+            storeData('user', response);
+            setLoading(false);
+            setLoginModal(false);
+            message.success('Successfully registred!');
+
+            console.log('RESPONSE',response);
+            console.log('USER', user)
+        } else {
+            setLoading(false);
+            setLoginModal(false);
+            Modal.error({
+                title: 'Error',
+                content: 'Internal Server Error, Please try after sometime...'
+            });
+        }
     }
 
     const failedSubmitNewUserData = (values) => {
-        console.log(values);
+        setLoading(false);
+        setLoginModal(false);
+        Modal.error({
+            title: 'Error',
+            content: 'Internal Server Error, Please try after sometime...'
+        });
     }
 
     const prefixSelector = (
@@ -65,7 +177,7 @@ const DesktopTopNavbar = (props) => {
         </Menu>
     );
 
-    return(
+    return ( 
         <div style={{width: '100%'}}>
             <Affix offsetTop={top} className="navbar">
                 <div className="navbarContainer" style={{backgroundColor: Colors.darkBlue()}}>
@@ -107,11 +219,19 @@ const DesktopTopNavbar = (props) => {
                                 className="centerStyle"
                                 >
                                 <div className="desktopUserOrLogin">
-                                    <Button
-                                        onClick={() => setLoginModal(true)}
-                                        >
-                                        Login
-                                    </Button>
+                                    {user && user.id ? (
+                                        <Button
+                                            onClick={logout}
+                                            >
+                                            Logout
+                                        </Button>
+                                    ) : (
+                                        <Button
+                                            onClick={() => setLoginModal(true)}
+                                            >
+                                            Login
+                                        </Button>
+                                    )}
                                 </div>
                             </Col>
                             <Col 
@@ -153,6 +273,7 @@ const DesktopTopNavbar = (props) => {
                 onCancel={() => setLoginModal(false)}
                 width={750}
                 >
+                {loading ? <Loading title='Loading...' /> :
                 <div className="loginContent">
                     <Row>
                         <Col span={8}>
@@ -259,6 +380,7 @@ const DesktopTopNavbar = (props) => {
                         </Col>
                     </Row>
                 </div>
+                }
             </Modal>
         </div>
     );
