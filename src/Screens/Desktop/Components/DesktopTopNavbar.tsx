@@ -249,13 +249,13 @@ const DesktopTopNavbar = (props) => {
                                 span={2} 
                                 className="centerStyle"
                                 >
-                                <a
+                                <span
                                     className="shoppingCart"
-                                    onClick={e => e.preventDefault()}
-                                >
+                                    onClick={() => history.push('desktopCart')}
+                                    >
                                     <ShoppingCartOutlined />
                                     <span className="cartText">&nbsp;Cart</span>
-                                </a>
+                                </span>
                             </Col>
                             <Col span={2}></Col>
                         </Row>
