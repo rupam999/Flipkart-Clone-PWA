@@ -2,15 +2,15 @@ import React, {useContext, useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import { Affix, Button, Row, Col, Form, Input, Modal, Select, Menu, Dropdown, message } from 'antd';
 import { DownOutlined, ShoppingCartOutlined } from '@ant-design/icons';
-import Colors from '../../../utils/Colors';
-import LOGO from '../../../assets/desktop_logo.png';
-import './css/DesktopTopNavbarStyle.css';
-import { handleLogin } from '../../../api/handleLogin';
-import Loading from './Loading';
-import { handleSignup } from '../../../api/handleSignup';
 import { Store } from '../../../Context/Store';
 import { storeData } from '../../../localStorage/storeData';
 import { getData } from '../../../localStorage/getData';
+import { handleLogin } from '../../../api/handleLogin';
+import { handleSignup } from '../../../api/handleSignup';
+import Loading from './Loading';
+import Colors from '../../../utils/Colors';
+import LOGO from '../../../assets/desktop_logo.png';
+import './css/DesktopTopNavbarStyle.css';
 
 const { SubMenu } = Menu;
 const { Option } = Select;
@@ -134,9 +134,6 @@ const DesktopTopNavbar = (props) => {
             setLoading(false);
             setLoginModal(false);
             message.success('Successfully registred!');
-
-            console.log('RESPONSE',response);
-            console.log('USER', user)
         } else {
             setLoading(false);
             setLoginModal(false);
