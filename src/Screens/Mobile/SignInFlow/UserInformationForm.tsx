@@ -46,14 +46,14 @@ export const UserInformationForm = () => {
             setLoader(true)
             const user = await handleSignup(values);
             setLoader(false)
-            if(user !== -1 && user.uid) {
-                setUser(user)
-                storeData('user', {...values, uid: user.uid, password: ''})
-                removeData('password');
-                history.push('/user')
-            } else {
-                setError('Internal Server Error!')
-            }
+            // if(user !== -1 && user.uid) {
+            //     setUser(user)
+            //     storeData('user', {...values, uid: user.uid, password: ''})
+            //     removeData('password');
+            //     history.push('/user')
+            // } else {
+            //     setError('Internal Server Error!')
+            // }
         }
     };
     

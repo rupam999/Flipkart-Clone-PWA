@@ -1,16 +1,10 @@
 import { REGISTER } from "./Config";
 import { postRequest } from "./postRequest";
-import { storeData } from "../localStorage/storeData";
 
 export const handleSignup = async (values: any) => {
     try {
-        const res = await postRequest(REGISTER, values);
-        if (res.data.error === 0) {
-            storeData("user", values);
-            return res.data;
-        } else {
-            return -1;
-        }
+        const response = await postRequest(REGISTER, values);
+        return response.data;
     } catch (err) {
         console.log(err);
         return -1;
