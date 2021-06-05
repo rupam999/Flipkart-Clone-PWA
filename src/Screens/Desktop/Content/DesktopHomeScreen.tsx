@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import DesktopFooter from '../Components/DesktopFooter';
+import DesktopHome3Banner from '../Components/DesktopHome3Banner';
 import DesktopHomeDealsOfTheDay from '../Components/DesktopHomeDealsOfTheDay';
 import DesktopHomeSuggestedForYou from '../Components/DesktopHomeSuggestedForYou';
 import DesktopNavbar from '../Components/DesktopNavbar';
@@ -13,7 +14,14 @@ export const DesktopHomeScreen = () => {
             <div style={{backgroundColor: '#F1F3F6'}}>
                 <DesktopSlider />
                 <DesktopHomeDealsOfTheDay />
-                <DesktopHomeSuggestedForYou />
+                <DesktopHome3Banner />
+                <DesktopHomeSuggestedForYou 
+                    heading='Top Rated Product For You'
+                />
+                <DesktopHome3Banner />
+                <DesktopHomeSuggestedForYou 
+                    heading='Top Deals on Devices'
+                />
                 <DesktopFooter />
             </div>
         </div>

@@ -2,7 +2,33 @@
     margin: 7.5px;
 }
 
-.dealsOfTheDayHomeScreenItem {
+.DealsContent .heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px 5px 25px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.DealsContent .heading h2 {
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.DealsContent .heading Button {
+    background: #2874f0;
+    color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+    border: none;
+    width: 110px;
+}
+
+.DealsContent .mainProducts {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.DealsContent .dealsOfTheDayHomeScreenItem {
     background-color: #fff;
     margin-right: 7.5px;
     min-height: 365px;
@@ -10,38 +36,19 @@
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
 
-.dealsOfTheDayAdHomeBanner {
+.DealsContent .dealsOfTheDayAdHomeBanner {
     background-color: #fff;
     min-height: 365px;
     max-height: 365px;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
 
-.dealsOfTheDayAdHomeBanner img {
+.DealsContent .dealsOfTheDayAdHomeBanner img {
     padding: 4px;
     width: 100%;
     max-height: 360px;
 }
 
-.Home3banner {
-    background-color: default;
-    margin: 7.5px;
-    margin-top: 10px;
-}
-
-.Home3bannerImage {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    height: 235px;
-    max-height: 235px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-
-.Home3bannerImage img {
-    width: 100%;
-}
-
-.marginRight {
+.DealsContent .marginRight {
     margin-right: 10px;
 }

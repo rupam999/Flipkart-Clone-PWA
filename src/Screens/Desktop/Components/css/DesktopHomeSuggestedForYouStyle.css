@@ -9,6 +9,27 @@
     background-color: #fff;
 }
 
+.SuggestedProductHome .SuggestedProductHomeItem .heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px 5px 25px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.SuggestedProductHome .SuggestedProductHomeItem .heading h2 {
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.SuggestedProductHome .SuggestedProductHomeItem .heading Button {
+    background: #2874f0;
+    color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+    border: none;
+    width: 110px;
+}
+
 .Home3banner {
     background-color: default;
     margin: 7.5px;
