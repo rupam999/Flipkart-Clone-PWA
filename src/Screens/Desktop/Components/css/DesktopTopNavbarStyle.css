@@ -117,6 +117,10 @@
     font-size: 20px;
 }
 
+.shoppingCart:hover {
+    cursor: pointer;
+}
+
 .cartText {
     font-size: 16px;
 }

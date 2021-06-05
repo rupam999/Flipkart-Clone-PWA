@@ -11,10 +11,13 @@ const DesktopHomeDealsOfTheDay = () => {
             <Row>
                 <Col span={20}>
                     <div className="dealsOfTheDayHomeScreenItem">
-                        {/* <p onClick={() => history.push('/DealsOfTheDay')}>DEALS OF THE DAY</p> */}
                         <div className="heading">
                             <h2>Deals of the Day</h2>
-                            <Button>View All</Button>
+                            <Button
+                                onClick={() => history.push('/DealsOfTheDay')}
+                                >
+                                View All
+                            </Button>
                         </div>
                         <div className="mainProducts">
                             <DesktopHomeSingleProduct extraRight='16px' />

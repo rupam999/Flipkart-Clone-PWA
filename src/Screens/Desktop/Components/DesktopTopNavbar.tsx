@@ -12,12 +12,9 @@ import Colors from '../../../utils/Colors';
 import LOGO from '../../../assets/desktop_logo.png';
 import './css/DesktopTopNavbarStyle.css';
 
-const { SubMenu } = Menu;
-const { Option } = Select;
-
 const DesktopTopNavbar = (props) => {
     const {search} = props;
-    const [top, setTop] = useState(0);
+    const [top] = useState(0);
     const history = useHistory();
     const {user, setUser} = useContext(Store);
     const [loginModal, setLoginModal] = useState<boolean>(false);
@@ -153,18 +150,9 @@ const DesktopTopNavbar = (props) => {
         });
     }
 
-    const prefixSelector = (
-        <Form.Item name="prefix" noStyle>
-          <Select style={{ width: 50, height: 35 }}>
-            <Option value="86">+86bbhjhjghjghjgjh</Option>
-            <Option value="87">+87</Option>
-          </Select>
-        </Form.Item>
-    );
-
     const menu = (
         <Menu>
-            <Menu.ItemGroup title="Group title">
+            <Menu.ItemGroup title="More">
                 <Menu.Item>1st menu item</Menu.Item>
                 <Menu.Item>2nd menu item</Menu.Item>
                 <Menu.Item>2nd menu item</Menu.Item>
@@ -187,8 +175,8 @@ const DesktopTopNavbar = (props) => {
                             >
                                 <img 
                                     src={LOGO} 
-                                    className="desktopLogo" 
-                                    // onClick={}
+                                    className="desktopLogo"
+                                    // onClick={() => history.push('/')}
                                     alt="LOGO"
                                 />
                             </Col>
