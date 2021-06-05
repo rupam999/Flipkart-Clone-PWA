@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Button, Rate, Form, Input, Modal } from 'antd';
+import { Row, Col, Button, Rate, Form, Input, Modal, message } from 'antd';
 import { ShoppingCartOutlined, SendOutlined, TagFilled } from '@ant-design/icons';
 import { useParams } from 'react-router-dom';
+import { getSeperateProduct } from '../../../api/getSeperateProduct';
+import { storeData } from '../../../localStorage/storeData';
+import { getData } from '../../../localStorage/getData';
 import DesktopFooter from '../Components/DesktopFooter';
 import DesktopNavbar from '../Components/DesktopNavbar';
-import './css/DesktopDetailsProductPageStyle.css';
 import DesktopProductDecription from '../Components/DesktopProductDescription';
-import { getSeperateProduct } from '../../../api/getSeperateProduct';
 import Desktop404 from '../Components/Desktop404';
 import Loading from '../Components/Loading';
+import './css/DesktopDetailsProductPageStyle.css';
 
 export const DesktopDetailProductPage = (props) => {
     const { productId } = useParams<{productId: any}>();
@@ -50,6 +52,29 @@ export const DesktopDetailProductPage = (props) => {
         return Math.round(((mrp - price) / mrp) * 100);
     }
 
+    const addItemToCart = async (productInfo) => {
+        try{
+            // const previousCartResponse = await getData('cart');
+            // const previousCart = [];
+            // if(previousCartResponse.length) {
+            //     previousCart.push(previousCartResponse);
+            // }
+            // previousCart.push({
+            //     imageUrl: productInfo.url,
+            //     name: productInfo.name,
+            //     category: productInfo.category
+            // });
+            // await storeData('cart', previousCart);
+            message.success('Product Added to Cart');
+        } catch(error) {
+            console.log('DesktopDetailProductPage Error', error);
+            Modal.error({
+                title: 'Error',
+                content: 'Internal Server Error, Please try again after sometimes...'
+            });
+        }
+    }
+
     return(
         <div style={{width: '100%'}}>
             <DesktopNavbar />
@@ -69,7 +94,10 @@ export const DesktopDetailProductPage = (props) => {
 
                             {(product.countInStock > 0) ? (
                                 <div className="DesktopBuyBtn">
-                                    <Button className="btn addToCartBtn">
+                                    <Button 
+                                        className="btn addToCartBtn"
+                                        onClick={() => addItemToCart(product)}
+                                        >
                                         <ShoppingCartOutlined /> Add to Cart
                                     </Button>
                                     <Button className="btn buyNow">

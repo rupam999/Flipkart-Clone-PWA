@@ -1,11 +1,22 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import { Store } from '../../../Context/Store';
+import { getData } from '../../../localStorage/getData';
 import DesktopEmptyCart from '../Components/DesktopEmptyCart';
 import DesktopFooter from '../Components/DesktopFooter';
 import DesktopNavbar from '../Components/DesktopNavbar';
 
 export const DesktopShoppingCart = () => {
     const {user} = useContext(Store);
+
+    const showCartData = async () => {
+        const data = await getData('cart');
+        console.log(data);
+    }
+
+    useEffect(() => {
+        showCartData();
+    }, []);
+
     return(
         <div>
             <DesktopNavbar />
