@@ -1,41 +1,41 @@
 .extraHeader {
-    min-height: 40px;
-    position: fixed;
-    top: 42px;
-    width: 100%;
+  min-height: 40px;
+  position: fixed;
+  top: 42px;
+  width: 100%;
 }
 
 .mainContent {
-    width: 100%;
-    position: fixed;
-    top: 55px;
-    border-top-right-radius: 18px;
-    border-top-left-radius: 18px;
-    height: 100%;
-    padding: 18px;
+  width: 100%;
+  position: fixed;
+  top: 55px;
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+  height: 100%;
+  padding: 18px;
 }
 
 .mainTitle {
-    font-size: 1.3em;
-    margin: auto 5px;
-    padding-top: 10px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: 550;
+  font-size: 1.3em;
+  margin: auto 5px;
+  padding-top: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 550;
 }
 
 .goBackBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-radius: 5px;
 }
 
 .goBackBtn span {
-    color: #fff;
-    font-size: 14px;
-    text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
 }

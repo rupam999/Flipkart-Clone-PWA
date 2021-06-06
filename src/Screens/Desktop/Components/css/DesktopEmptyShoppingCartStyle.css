@@ -1,37 +1,38 @@
 .desktopCartItem {
-    margin: 25px 50px;
-    background-color: #fff;
-    min-height: 400px;
-    box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px 0px;
+  margin: 25px 50px;
+  background-color: #fff;
+  min-height: 400px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px 0px;
 }
 
 .desktopCartItem .emptyDivContent h3 {
-    font-size: 18px;
-    line-height: 56px;
-    padding: 0 24px;
-    font-weight: 700;
-    color: #212121;
+  font-size: 18px;
+  line-height: 56px;
+  padding: 0 24px;
+  font-weight: 700;
+  color: #212121;
 }
 
 .desktopCartItem .emptyDivContent .message {
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .desktopCartItem .emptyDivContent .message img {
-    width: 240px;
-    margin-left: 20px;
+  width: 240px;
+  margin-left: 20px;
 }
 
-.desktopCartItem .emptyDivContent .message h3,p {
-    text-align: center;
-    padding-bottom: 0px;
-    margin-bottom: 5px;
+.desktopCartItem .emptyDivContent .message h3,
+p {
+  text-align: center;
+  padding-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 .desktopCartItem .emptyDivContent .message h3 {
-    font-size: 16px;
-    line-height: 25px;
-    position: relative;
+  font-size: 16px;
+  line-height: 25px;
+  position: relative;
 }

@@ -1,84 +1,86 @@
 .DesktopFooter {
-    padding: 10px;
-    padding-left: 7.5px;
-    padding-right: 7.5px;
-    padding-top: 35px;
-    padding-bottom: 35px;
+  padding: 10px;
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 
 .DesktopMainFooter {
-    padding-bottom: 40px;
-    border-bottom: 1px solid #454d5e;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #454d5e;
 }
 
 .borderRight {
-    border-left: 1px solid #454d5e;
-    height: 90%;
+  border-left: 1px solid #454d5e;
+  height: 90%;
 }
 
-.DesktopFooter4Section h4, .DesktopFooterMailUs h4, .DesktopFooterOfficeAddress h4 {
-    text-align: left;
-    color: #878787;
-    font-size: 12px;
-    font-weight: 400;
-    margin-bottom: 9px;
-    display: block;
+.DesktopFooter4Section h4,
+.DesktopFooterMailUs h4,
+.DesktopFooterOfficeAddress h4 {
+  text-align: left;
+  color: #878787;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 9px;
+  display: block;
 }
 
 .DesktopFooter4Section a {
-    color: #fff;
-    display: block;
-    font-weight: 400;
-    font-size: 12px;
-    border: none;
-    outline: none;
-    text-decoration: none;
+  color: #fff;
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  text-decoration: none;
 }
 
-.DesktopFooter4Section a:hover, a:active {
-    color: #fff;
-    display: block;
-    font-weight: 400;
-    font-size: 12px;
-    border: none;
-    outline: none;
-    text-decoration: underline;
-    cursor: pointer;
+.DesktopFooter4Section a:hover,
+a:active {
+  color: #fff;
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.DesktopFooterMailUs p, .DesktopFooterOfficeAddress p{
-    color: #fff;
-    margin-bottom: 0;
-    padding: 0;
-    line-height: 1.5;
-    font-style: normal;
-    color: #fff;
-    font-size: 12px;
-    white-space: nowrap;
-    text-align: left;
+.DesktopFooterMailUs p,
+.DesktopFooterOfficeAddress p {
+  color: #fff;
+  margin-bottom: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-style: normal;
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+  text-align: left;
 }
 
 .DesktopCopyRightSection {
-
 }
 
 .DesktopCopyRightSection {
-    padding-top: 15px;
-    display: flex;
-    justify-content: space-between;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .DesktopFooterCopyRight span {
-    color: #fff;
-    margin-left: 8px;
+  color: #fff;
+  margin-left: 8px;
 }
 
 .DesktopFooterCopyRight span:hover {
-    color: #fff;
-    margin-left: 8px;
-    cursor: pointer;
+  color: #fff;
+  margin-left: 8px;
+  cursor: pointer;
 }
 
 .paymentLogo {
-    
 }

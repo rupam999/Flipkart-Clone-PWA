@@ -8,28 +8,28 @@ import CartMainBody from "./components/CartMainBody";
 import Loader from "../components/mobileLoader";
 
 export const ShoppingCart = () => {
-    const [loading, setLoading] = useState(true);
-    const { setUser } = useContext(Store);
-    const history = useHistory();
-    const loggedUser = getData("user");
+  const [loading, setLoading] = useState(true);
+  const { setUser } = useContext(Store);
+  const history = useHistory();
+  const loggedUser = getData("user");
 
-    useEffect(() => {
-        if (userCheck(history)) {
-            setUser(loggedUser);
-            setLoading(false);
-        }
-    }, []);
+  useEffect(() => {
+    if (userCheck(history)) {
+      setUser(loggedUser);
+      setLoading(false);
+    }
+  }, []);
 
-    return (
-        <React.Fragment>
-            {loading ? (
-                <Loader />
-            ) : (
-                <div>
-                    <HeaderWithBack name="My Cart" icon="left" />
-                    <CartMainBody />
-                </div>
-            )}
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <HeaderWithBack name="My Cart" icon="left" />
+          <CartMainBody />
+        </div>
+      )}
+    </React.Fragment>
+  );
 };

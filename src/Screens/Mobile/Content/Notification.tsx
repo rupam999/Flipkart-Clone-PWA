@@ -7,52 +7,52 @@ import Colors from "../../../utils/Colors";
 import "./css/NotificationStyle.css";
 
 export const Notification = () => {
-    const [menu, toggle] = useState(false);
-    const { width } = WindowDimensions();
+  const [menu, toggle] = useState(false);
+  const { width } = WindowDimensions();
 
-    const onOpenChange = () => {
-        toggle(!menu);
-    };
+  const onOpenChange = () => {
+    toggle(!menu);
+  };
 
-    const sidebar = (
-        <div style={{ width: width * 0.75, maxWidth: 290 }}>
-            <DrawerContent />
-        </div>
-    );
+  const sidebar = (
+    <div style={{ width: width * 0.75, maxWidth: 290 }}>
+      <DrawerContent />
+    </div>
+  );
 
-    return (
+  return (
+    <div
+      style={{
+        width: "100%",
+        minHeight: "100%",
+      }}
+    >
+      <Drawer
+        className="my-drawer"
+        style={{ minHeight: document.documentElement.clientHeight }}
+        enableDragHandle
+        // contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
+        sidebar={sidebar}
+        open={menu}
+        onOpenChange={onOpenChange}
+      >
+        <HomeScreenHeader
+          menu={menu}
+          toggle={toggle}
+          pageHeading="Notification"
+          curve={true}
+        />
         <div
-            style={{
-                width: "100%",
-                minHeight: "100%",
-            }}
+          className="extraHeader"
+          style={{ backgroundColor: Colors.darkBlue() }}
+        ></div>
+        <div
+          className="mainContent"
+          style={{ backgroundColor: Colors.white() }}
         >
-            <Drawer
-                className="my-drawer"
-                style={{ minHeight: document.documentElement.clientHeight }}
-                enableDragHandle
-                // contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
-                sidebar={sidebar}
-                open={menu}
-                onOpenChange={onOpenChange}
-            >
-                <HomeScreenHeader
-                    menu={menu}
-                    toggle={toggle}
-                    pageHeading="Notification"
-                    curve={true}
-                />
-                <div
-                    className="extraHeader"
-                    style={{ backgroundColor: Colors.darkBlue() }}
-                ></div>
-                <div
-                    className="mainContent"
-                    style={{ backgroundColor: Colors.white() }}
-                >
-                    <p>Notification Screen Content</p>
-                </div>
-            </Drawer>
+          <p>Notification Screen Content</p>
         </div>
-    );
+      </Drawer>
+    </div>
+  );
 };

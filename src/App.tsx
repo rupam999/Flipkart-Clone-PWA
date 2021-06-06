@@ -1,29 +1,36 @@
-import React from 'react';
-import 'antd/dist/antd.css';
-import 'antd-mobile/dist/antd-mobile.css';
+import React from "react";
+import "antd/dist/antd.css";
+import "antd-mobile/dist/antd-mobile.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import WindowDimensions from './components/WindowDimensions';
-import { StoreProvider } from './Context/Store';
-import { Login, Register, VerifyOTP, UserInformationForm } from './Screens/Mobile/SignInFlow';
-import { MainNavigation } from './Screens/Mobile/Navigation';
-import { DesktopDealsOfTheDay, DesktopHomeScreen, DesktopShoppingCart } from './Screens/Desktop/Content';
-import Search from './Screens/Desktop/Router/Search';
+import WindowDimensions from "./components/WindowDimensions";
+import { StoreProvider } from "./Context/Store";
+import {
+  Login,
+  Register,
+  VerifyOTP,
+  UserInformationForm,
+} from "./Screens/Mobile/SignInFlow";
+import { MainNavigation } from "./Screens/Mobile/Navigation";
+import {
+  DesktopDetailProductPage,
+  DesktopHome,
+  DesktopSearchResult,
+} from "./Screens/Desktop/Content";
 
 const App = () => {
-  const {width} = WindowDimensions();
-  if(width > 900){
+  const { width } = WindowDimensions();
+  if (width > 900) {
     return (
       <StoreProvider>
         <Router>
-          <Route exact path="/" component={DesktopHomeScreen} />
-          <Route path="/Search" component={Search} />
-          <Route exact path="/DealsOfTheDay" component={DesktopDealsOfTheDay} />
-          <Route exact path="/desktopCart" component={DesktopShoppingCart} />
+          <Route path="/" component={DesktopHome} />
         </Router>
       </StoreProvider>
     );
   } else {
-    {/* Mobile Device Screen */}
+    {
+      /* Mobile Device Screen */
+    }
     return (
       <StoreProvider>
         <Router>
@@ -37,6 +44,6 @@ const App = () => {
       </StoreProvider>
     );
   }
-}
+};
 
 export default App;

@@ -1,0 +1,36 @@
+.desktopHomeSingleProductDiv {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.desktopHomeSingleProductDiv .productContent img {
+  width: 150px;
+}
+
+.desktopHomeSingleProductDiv .productContent h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desktopHomeSingleProductDiv .productContent h5 {
+  color: #388e3c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.desktopHomeSingleProductDiv .productContent p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  opacity: 0.6;
+}

@@ -1,20 +1,20 @@
 .searchLeftFilter .filterHeading {
-    border-bottom: 1px solid #f0f0f0;
-    padding: 16px;
-    padding-bottom: 5px;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px;
+  padding-bottom: 5px;
 }
 
-.searchLeftFilter .filterHeading h3{
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: .3px;
+.searchLeftFilter .filterHeading h3 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .searchLeftFilter .mainFilterSection .ant-collapse-header {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .searchLeftFilter .mainFilterSection .ant-checkbox-group-item {
-    display: block;
-    padding-top: 8px;
+  display: block;
+  padding-top: 8px;
 }
