@@ -1,113 +1,119 @@
 .desktopSeperateProduct {
-    margin-top: 10px;
-    background-color: #fff;
-    min-width: 100%;
-    min-height: 500px;
-    padding-top: 25px;
+  margin-top: 10px;
+  background-color: #fff;
+  min-width: 100%;
+  min-height: 500px;
+  padding-top: 25px;
 }
 
-.desktopSeperateProduct .DesktopBuyBtn, .DesktopOutOfStockBtn {
-    margin-left: 5%;
+.desktopSeperateProduct .DesktopBuyBtn,
+.DesktopOutOfStockBtn {
+  margin-left: 5%;
 }
 
 .desktopSeperateProduct .desktopProductImage {
-    max-width: 80%;
-    padding-left: 10%;
+  max-width: 80%;
+  padding-left: 10%;
 }
 
-.desktopSeperateProduct .DesktopBuyBtn .btn, .outOfStock {
-    width: 40%;
-    margin-right: 5%;
-    height: 50px;
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-    border: none;
-    font-size: 16px;
-    font-weight: 550;
-    margin-top: 45px;
+.desktopSeperateProduct .DesktopBuyBtn .btn,
+.outOfStock {
+  width: 40%;
+  margin-right: 5%;
+  height: 50px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  font-size: 16px;
+  font-weight: 550;
+  margin-top: 45px;
 }
 
 .desktopSeperateProduct .DesktopBuyBtn .outOfStock {
-    width: 85% !important;
-    box-shadow: 0 4px 6px 0 rgb(0 0 0 / 12%);
-    border: none;
-    background: #dbdad7;
-    color: #212121;
+  width: 85% !important;
+  box-shadow: 0 4px 6px 0 rgb(0 0 0 / 12%);
+  border: none;
+  background: #dbdad7;
+  color: #212121;
 }
 
 .desktopSeperateProduct .DesktopBuyBtn .addToCartBtn {
-    box-shadow: 0 4px 6px 0 rgb(0 0 0 / 12%);
-    border: none;
-    background: #ff9f00;
+  box-shadow: 0 4px 6px 0 rgb(0 0 0 / 12%);
+  border: none;
+  background: #ff9f00;
 }
 
 .desktopSeperateProduct .DesktopBuyBtn .buyNow {
-    background: #fb641b;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);   
+  background: #fb641b;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
 }
 
-.desktopSeperateProduct .desktopProductContent h3{
-    color: #212121;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.4;
+.desktopSeperateProduct .desktopProductContent h3 {
+  color: #212121;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .desktopProductContent .desktopNoRatingText {
-    font-size: 16px;
-    padding-top: 5px;
+  font-size: 16px;
+  padding-top: 5px;
 }
 
 .desktopProductContent .price {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    text-align: left;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
 }
 
 .desktopProductContent .mainPrice {
-    font-size: 25px;
-    font-weight: 500;
-    color: #212121;
-    cursor: pointer;
-    text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+  color: #212121;
+  cursor: pointer;
+  text-align: left;
 }
 
 .desktopSeperateProduct .desktopProductContent .desktopAvailableOffer p {
-    margin-bottom: 10px;
-    text-align: left;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
-.desktopSeperateProduct .desktopProductContent .desktopAvailableOffer p span{
-    padding-right: 5px;
-    color: green;
-    text-align: left;
+.desktopSeperateProduct .desktopProductContent .desktopAvailableOffer p span {
+  padding-right: 5px;
+  color: green;
+  text-align: left;
 }
 
-.desktopSeperateProduct .desktopProductContent .desktopAvailableOffer p span.bankoffer{
-    color: #212121!important;
-    font-weight: 700;
-    padding-right: 4px;
+.desktopSeperateProduct
+  .desktopProductContent
+  .desktopAvailableOffer
+  p
+  span.bankoffer {
+  color: #212121 !important;
+  font-weight: 700;
+  padding-right: 4px;
 }
 
 .desktopSeperateProduct .checkDeliveryPinCode {
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .desktopSeperateProduct .checkDeliveryPinCode {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .desktopSeperateProduct .checkDeliveryPinCode Input {
-    border: 0px;
-    border-bottom: 0.5px solid #2974F0;
+  border: 0px;
+  border-bottom: 0.5px solid #2974f0;
 }
 
 .desktopSeperateProduct .checkDeliveryPinCode Button {
-    margin-left: 10px;
-    background-color: transparent;
-    color: #2974F0;
-    border: 0px;
-    border-bottom: 0.5px solid #2974F0;
+  margin-left: 10px;
+  background-color: transparent;
+  color: #2974f0;
+  border: 0px;
+  border-bottom: 0.5px solid #2974f0;
 }

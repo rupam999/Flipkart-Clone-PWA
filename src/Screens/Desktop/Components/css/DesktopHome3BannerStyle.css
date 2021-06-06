@@ -1,22 +1,22 @@
 .Home3banner {
-    background-color: default;
-    margin: 7.5px;
-    margin-top: 10px;
+  background-color: default;
+  margin: 7.5px;
+  margin-top: 10px;
 }
 
 .Home3banner .Home3bannerImage {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    height: 235px;
-    max-height: 235px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  height: 235px;
+  max-height: 235px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .Home3banner .Home3bannerImage img {
-    width: 100%;
+  width: 100%;
 }
 
 .Home3banner .marginRight {
-    margin-right: 10px;
+  margin-right: 10px;
 }

@@ -15,79 +15,79 @@ import MonthPick from "../../../assets/MonthPick.jpg";
 import SelfClearenceDeal from "../../../assets/SelfClearenceDeal.jpg";
 
 const SuperOfferSection = () => {
-    return (
-        <div style={{ width: "100%" }}>
-            <div
-                style={{
-                    padding: 15,
-                    paddingLeft: 20,
-                    backgroundColor: "#fff",
-                }}
-            >
-                <h3
-                    style={{
-                        textTransform: "uppercase",
-                        fontSize: 16,
-                        marginBottom: 0,
-                        color: "#000",
-                    }}
-                >
-                    Shop By Offers
-                </h3>
-            </div>
-            <div style={{ backgroundColor: "#fff", paddingBottom: 15 }}>
-                <Flex>
-                    <Flex.Item>
-                        <img src={OFF50} width={"100%"} />
-                    </Flex.Item>
-                    <Flex.Item>
-                        <img src={OFF40} width={"100%"} />
-                    </Flex.Item>
-                    <Flex.Item>
-                        <img src={OFF30} width={"100%"} />
-                    </Flex.Item>
-                </Flex>
-                <Flex>
-                    <Flex.Item>
-                        <img src={Buy1Get1} width={"100%"} />
-                    </Flex.Item>
-                    <Flex.Item>
-                        <img src={MonthPick} width={"100%"} />
-                    </Flex.Item>
-                    <Flex.Item>
-                        <img src={SelfClearenceDeal} width={"100%"} />
-                    </Flex.Item>
-                </Flex>
-            </div>
-        </div>
-    );
+  return (
+    <div style={{ width: "100%" }}>
+      <div
+        style={{
+          padding: 15,
+          paddingLeft: 20,
+          backgroundColor: "#fff",
+        }}
+      >
+        <h3
+          style={{
+            textTransform: "uppercase",
+            fontSize: 16,
+            marginBottom: 0,
+            color: "#000",
+          }}
+        >
+          Shop By Offers
+        </h3>
+      </div>
+      <div style={{ backgroundColor: "#fff", paddingBottom: 15 }}>
+        <Flex>
+          <Flex.Item>
+            <img src={OFF50} width={"100%"} />
+          </Flex.Item>
+          <Flex.Item>
+            <img src={OFF40} width={"100%"} />
+          </Flex.Item>
+          <Flex.Item>
+            <img src={OFF30} width={"100%"} />
+          </Flex.Item>
+        </Flex>
+        <Flex>
+          <Flex.Item>
+            <img src={Buy1Get1} width={"100%"} />
+          </Flex.Item>
+          <Flex.Item>
+            <img src={MonthPick} width={"100%"} />
+          </Flex.Item>
+          <Flex.Item>
+            <img src={SelfClearenceDeal} width={"100%"} />
+          </Flex.Item>
+        </Flex>
+      </div>
+    </div>
+  );
 };
 
 export const OfferZone = () => {
-    const [loading, setLoading] = useState(true);
-    const { setUser } = useContext(Store);
-    const history = useHistory();
-    const loggedUser = getData("user");
+  const [loading, setLoading] = useState(true);
+  const { setUser } = useContext(Store);
+  const history = useHistory();
+  const loggedUser = getData("user");
 
-    useEffect(() => {
-        if (userCheck(history)) {
-            setUser(loggedUser);
-            setLoading(false);
-        }
-    }, []);
+  useEffect(() => {
+    if (userCheck(history)) {
+      setUser(loggedUser);
+      setLoading(false);
+    }
+  }, []);
 
-    return (
-        <React.Fragment>
-            {loading ? (
-                <Loader />
-            ) : (
-                <div>
-                    <HeaderWithBack name="Today's Offer" icon="left" />
-                    <div style={{ marginTop: 45, zIndex: 1 }}>
-                        <SuperOfferSection />
-                    </div>
-                </div>
-            )}
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <HeaderWithBack name="Today's Offer" icon="left" />
+          <div style={{ marginTop: 45, zIndex: 1 }}>
+            <SuperOfferSection />
+          </div>
+        </div>
+      )}
+    </React.Fragment>
+  );
 };

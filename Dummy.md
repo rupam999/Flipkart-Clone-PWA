@@ -7,10 +7,10 @@ import { EditSearchHeader } from '../Header';
 import Loader from '../components/mobileLoader';
 
 export const EditSearchBar = () => {
-    const [loading, setLoading] = useState(true);
-    const { setUser } = useContext(Store);
-    const history = useHistory();
-    const loggedUser = getData('user');
+const [loading, setLoading] = useState(true);
+const { setUser } = useContext(Store);
+const history = useHistory();
+const loggedUser = getData('user');
 
     useEffect(() => {
         if(userCheck(history)){
@@ -28,4 +28,5 @@ export const EditSearchBar = () => {
         }
         </React.Fragment>
     );
+
 }

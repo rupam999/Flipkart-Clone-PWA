@@ -5,20 +5,20 @@ import Colors from "../../../../utils/Colors";
 import "./css/DrawerTopSectionStyle.css";
 
 const DrawerTopSection = () => {
-    const user = getData("user");
-    return (
-        <div
-            className="DrawerUserInfo"
-            style={{ backgroundColor: Colors.darkBlue() }}
-        >
-            <p className="topMainDetailsPara">
-                <span>
-                    <UserOutlined className="topMainDetailsIcon" />
-                </span>
-                <span>{user.name}</span>
-            </p>
-        </div>
-    );
+  const user = getData("user");
+  return (
+    <div
+      className="DrawerUserInfo"
+      style={{ backgroundColor: Colors.darkBlue() }}
+    >
+      <p className="topMainDetailsPara">
+        <span>
+          <UserOutlined className="topMainDetailsIcon" />
+        </span>
+        <span>{user.name}</span>
+      </p>
+    </div>
+  );
 };
 
 export default DrawerTopSection;

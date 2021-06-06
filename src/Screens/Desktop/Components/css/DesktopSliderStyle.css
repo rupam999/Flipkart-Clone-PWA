@@ -1,8 +1,8 @@
 .slideContentSlide {
-    height: 280px;
-    color: #fff;
-    text-align: center;
-    background: #364d79;
-    width: 100%;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  height: 280px;
+  color: #fff;
+  text-align: center;
+  background: #364d79;
+  width: 100%;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }

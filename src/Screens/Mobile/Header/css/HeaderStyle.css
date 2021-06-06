@@ -1,36 +1,36 @@
 .marginRight20pt {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .searchHeading .am-navbar-title {
-    position: relative;
-    left: -28%;
+  position: relative;
+  left: -28%;
 }
 
 /* Edit Search Header */
 .editSearchHeaderDiv .am-navbar-title {
-    width: 100%;
-    flex: 1 !important;
+  width: 100%;
+  flex: 1 !important;
 }
 
 .editSearchHeaderDiv .am-navbar-right {
-    flex: none !important;
+  flex: none !important;
 }
 
 .editSearchHeaderDiv .am-navbar-left {
-    flex: none !important;
+  flex: none !important;
 }
 
 .editSearchHeaderDiv .ant-row,
 .ant-form-item {
-    margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .editSearchHeaderDiv .ant-form {
-    width: 100%;
-    border-radius: 3px;
+  width: 100%;
+  border-radius: 3px;
 }
 
 .editSearchHeaderDiv .ant-input:hover {
-    border-width: 0px !important;
+  border-width: 0px !important;
 }

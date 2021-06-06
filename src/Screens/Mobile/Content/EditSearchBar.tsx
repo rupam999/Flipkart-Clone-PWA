@@ -7,27 +7,27 @@ import { EditSearchHeader } from "../Header";
 import Loader from "../components/mobileLoader";
 
 export const EditSearchBar = () => {
-    const [loading, setLoading] = useState(true);
-    const { setUser } = useContext(Store);
-    const history = useHistory();
-    const loggedUser = getData("user");
+  const [loading, setLoading] = useState(true);
+  const { setUser } = useContext(Store);
+  const history = useHistory();
+  const loggedUser = getData("user");
 
-    useEffect(() => {
-        if (userCheck(history)) {
-            setUser(loggedUser);
-            setLoading(false);
-        }
-    }, []);
+  useEffect(() => {
+    if (userCheck(history)) {
+      setUser(loggedUser);
+      setLoading(false);
+    }
+  }, []);
 
-    return (
-        <React.Fragment>
-            {loading ? (
-                <Loader />
-            ) : (
-                <div>
-                    <EditSearchHeader />
-                </div>
-            )}
-        </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <EditSearchHeader />
+        </div>
+      )}
+    </React.Fragment>
+  );
 };
