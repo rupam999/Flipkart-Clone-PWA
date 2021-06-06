@@ -11,7 +11,11 @@ import {
   UserInformationForm,
 } from "./Screens/Mobile/SignInFlow";
 import { MainNavigation } from "./Screens/Mobile/Navigation";
-import { DesktopDetailProductPage, DesktopHome, DesktopSearchResult } from "./Screens/Desktop/Content";
+import {
+  DesktopDetailProductPage,
+  DesktopHome,
+  DesktopSearchResult,
+} from "./Screens/Desktop/Content";
 
 const App = () => {
   const { width } = WindowDimensions();
