@@ -5,7 +5,7 @@ import {
   SendOutlined,
   TagFilled,
 } from "@ant-design/icons";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Store } from "../../../Context/Store";
 import { getSeperateProduct } from "../../../api/getSeperateProduct";
 import { storeData } from "../../../localStorage/storeData";
@@ -18,6 +18,7 @@ import "./css/DesktopDetailsProductPageStyle.css";
 export const DesktopDetailProductPage = (props) => {
   const { productId } = useParams<{ productId: any }>();
   const { user } = useContext(Store);
+  const history = useHistory();
   const [loading, setLoading] = useState<Boolean>(false);
   const [product, setProduct] = useState<any>();
 
@@ -56,7 +57,7 @@ export const DesktopDetailProductPage = (props) => {
     return Math.round(((mrp - price) / mrp) * 100);
   };
 
-  const addItemToCart = async (productInfo) => {
+  const addItemToCart = async (productInfo, redirect) => {
     if (user && user.id) {
       try {
         const previousCartItem = await getData("cart");
@@ -70,7 +71,11 @@ export const DesktopDetailProductPage = (props) => {
           mrp: productInfo.mrp,
         });
         await storeData("cart", previousCartItem);
-        message.success("Product Added to Cart");
+        if(redirect) {
+          history.push('/DesktopCart');
+        } else {
+          message.success("Product Added to Cart");
+        }
       } catch (error) {
         console.log("DesktopDetailProductPage Error", error);
         Modal.error({
@@ -104,11 +109,14 @@ export const DesktopDetailProductPage = (props) => {
                   <div className="DesktopBuyBtn">
                     <Button
                       className="btn addToCartBtn"
-                      onClick={() => addItemToCart(product)}
+                      onClick={() => addItemToCart(product, false)}
                     >
                       <ShoppingCartOutlined /> Add to Cart
                     </Button>
-                    <Button className="btn buyNow">
+                    <Button 
+                      className="btn buyNow"
+                      onClick={() => addItemToCart(product, true)}
+                      >
                       <SendOutlined />
                       Buy Now
                     </Button>
