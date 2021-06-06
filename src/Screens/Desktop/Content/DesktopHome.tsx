@@ -9,6 +9,7 @@ import {
   DesktopDetailProductPage,
   DesktopShoppingCart,
   DesktopDealsOfTheDay,
+  DesktopPayment,
 } from ".";
 
 const { Content } = Layout;
@@ -33,6 +34,7 @@ export const DesktopHome = () => {
           />
           <Route exact path="/DealsOfTheDay" component={DesktopDealsOfTheDay} />
           <Route exact path="/DesktopCart" component={DesktopShoppingCart} />
+          <Route exact path="/DesktopPayment" component={DesktopPayment} />
         </Switch>
       </Content>
       <DesktopFooter />

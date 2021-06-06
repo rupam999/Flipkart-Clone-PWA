@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Row, Col, Button } from "antd";
+import { useHistory } from "react-router-dom";
 import { Store } from "../../../Context/Store";
 import { getData } from "../../../localStorage/getData";
 import DesktopEmptyCart from "../Components/DesktopEmptyCart";
@@ -9,6 +10,7 @@ import "./css/DesktopShoppingCartStyle.css";
 
 export const DesktopShoppingCart = () => {
   const { user } = useContext(Store);
+  const history = useHistory();
   const [loading, setLoading] = useState<Boolean>(false);
   const [cartItemLoading, setCartItemLoading] = useState<Boolean>(false);
   const [cartItem, setCartItem] = useState<any>([]);
@@ -28,6 +30,15 @@ export const DesktopShoppingCart = () => {
   useEffect(() => {
     showCartData();
   }, [item]);
+
+  const placeOrder = (price) => {
+    history.push({
+      pathname: "/DesktopPayment",
+      state: {
+        price,
+      },
+    });
+  };
 
   return (
     <div>
@@ -62,7 +73,7 @@ export const DesktopShoppingCart = () => {
                     })
                   )}
                   <div className="placeOrderBtn">
-                    <Button onClick={() => alert("Order Placed")}>
+                    <Button onClick={() => placeOrder(price)}>
                       Place Order
                     </Button>
                   </div>
