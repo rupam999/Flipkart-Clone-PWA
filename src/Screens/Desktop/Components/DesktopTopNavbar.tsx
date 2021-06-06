@@ -187,7 +187,7 @@ const DesktopTopNavbar = (props) => {
                 <img
                   src={LOGO}
                   className="desktopLogo"
-                  onClick={() => history.push('/home')}
+                  onClick={() => history.push("/DesktopHome")}
                   alt="LOGO"
                 />
               </Col>

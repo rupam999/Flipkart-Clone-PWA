@@ -20,7 +20,7 @@ export const DesktopHome = () => {
       <Content>
         <Switch>
           <Route exact path="/" component={DesktopHomeScreen} />
-          <Route exact path="/home" component={DesktopHomeScreen} />
+          <Route exact path="/DesktopHome" component={DesktopHomeScreen} />
           <Route
             exact
             path="/Search/:searchName"

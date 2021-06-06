@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Row, Col, Button, Rate, Form, Input, Modal, message } from "antd";
 import {
   ShoppingCartOutlined,
@@ -6,11 +6,10 @@ import {
   TagFilled,
 } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
+import { Store } from "../../../Context/Store";
 import { getSeperateProduct } from "../../../api/getSeperateProduct";
 import { storeData } from "../../../localStorage/storeData";
 import { getData } from "../../../localStorage/getData";
-import DesktopFooter from "../Components/DesktopFooter";
-import DesktopNavbar from "../Components/DesktopNavbar";
 import DesktopProductDecription from "../Components/DesktopProductDescription";
 import Desktop404 from "../Components/Desktop404";
 import Loading from "../Components/Loading";
@@ -18,6 +17,7 @@ import "./css/DesktopDetailsProductPageStyle.css";
 
 export const DesktopDetailProductPage = (props) => {
   const { productId } = useParams<{ productId: any }>();
+  const { user } = useContext(Store);
   const [loading, setLoading] = useState<Boolean>(false);
   const [product, setProduct] = useState<any>();
 
@@ -57,24 +57,29 @@ export const DesktopDetailProductPage = (props) => {
   };
 
   const addItemToCart = async (productInfo) => {
-    try {
-      // const previousCartResponse = await getData('cart');
-      // const previousCart = [];
-      // if(previousCartResponse.length) {
-      //     previousCart.push(previousCartResponse);
-      // }
-      // previousCart.push({
-      //     imageUrl: productInfo.url,
-      //     name: productInfo.name,
-      //     category: productInfo.category
-      // });
-      // await storeData('cart', previousCart);
-      message.success("Product Added to Cart");
-    } catch (error) {
-      console.log("DesktopDetailProductPage Error", error);
-      Modal.error({
-        title: "Error",
-        content: "Internal Server Error, Please try again after sometimes...",
+    if (user && user.id) {
+      try {
+        const previousCartItem = await getData("cart");
+        previousCartItem.push({
+          userId: user.id,
+          productId: productInfo._id,
+          imageUrl: productInfo.url,
+          name: productInfo.name,
+          category: productInfo.category,
+        });
+        await storeData("cart", previousCartItem);
+        message.success("Product Added to Cart");
+      } catch (error) {
+        console.log("DesktopDetailProductPage Error", error);
+        Modal.error({
+          title: "Error",
+          content: "Internal Server Error, Please try again after sometimes...",
+        });
+      }
+    } else {
+      Modal.warning({
+        title: "Warning",
+        content: "Please Login to Add Item to Cart!",
       });
     }
   };

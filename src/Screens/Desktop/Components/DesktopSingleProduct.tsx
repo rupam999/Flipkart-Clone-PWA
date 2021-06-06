@@ -42,7 +42,7 @@ const DesktopSingleProduct = (props) => {
                 <span className="desktopNoRatingText">No Rating Found</span>
               )}
             </span>
-            <p className="price">
+            <p className="price desktopItemPrice">
               <span className="mainPrice">&#8377; {data.price}</span>
               {Number(data.price) !== Number(data.mrp) ? (
                 <React.Fragment>
@@ -56,7 +56,7 @@ const DesktopSingleProduct = (props) => {
                 </React.Fragment>
               ) : null}
             </p>
-            <div className="extraInformation">
+            <div className="extraInformation desktopExtraInfo">
               <p>This is a single line description</p>
               <p>This is next line description</p>
               <p>This is next line description</p>
