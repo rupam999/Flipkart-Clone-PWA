@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col } from "antd";
 import { getData } from "../../../localStorage/getData";
-import "./css/DesktopCartSeperateItemStyle.css";
 import { storeData } from "../../../localStorage/storeData";
+import "./css/DesktopCartSeperateItemStyle.css";
 
 const DesktopCartSeperateItem = (props) => {
   const { product, setTotalItem, setCartItemLoading, setCartItem } = props;
@@ -34,7 +34,9 @@ const DesktopCartSeperateItem = (props) => {
         <div className="productDescription">
           <h3>{product.name}</h3>
           <h3>Category: {product.category}</h3>
-          <h4>₹1,099</h4>
+          <h4>&#8377; {product.price} &nbsp; 
+            <del>&#8377;{Number(product.price) !== Number(product.mrp) ? product.mrp : null}</del>
+          </h4>
         </div>
       </Col>
       <Col span={9}>

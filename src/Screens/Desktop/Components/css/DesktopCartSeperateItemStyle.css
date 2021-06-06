@@ -53,6 +53,11 @@
   padding-top: 3px;
 }
 
+.desktopShoppingCart .shoppingItem .productDescription h4 del {
+  font-weight: 500;
+  font-size: 16px;
+}
+
 .desktopShoppingCart .shoppingItem .deliveryRelated {
   color: #212121;
   line-height: 1;

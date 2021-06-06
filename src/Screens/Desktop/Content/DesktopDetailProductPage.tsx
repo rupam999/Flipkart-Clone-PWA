@@ -66,6 +66,8 @@ export const DesktopDetailProductPage = (props) => {
           imageUrl: productInfo.url,
           name: productInfo.name,
           category: productInfo.category,
+          price: productInfo.price,
+          mrp: productInfo.mrp
         });
         await storeData("cart", previousCartItem);
         message.success("Product Added to Cart");
@@ -133,11 +135,11 @@ export const DesktopDetailProductPage = (props) => {
                   )}
                 </span>
                 <p className="price">
-                  <span className="mainPrice">&#8377; {20999}</span>
+                  <span className="mainPrice">&#8377; {product.price}</span>
                   {Number(product.price) !== Number(product.mrp) ? (
                     <React.Fragment>
                       <span>
-                        &nbsp; <del>&#8377; {20999}</del>&nbsp;
+                        &nbsp; <del>&#8377; {product.mrp}</del>&nbsp;
                       </span>
                       <span>
                         {" "}

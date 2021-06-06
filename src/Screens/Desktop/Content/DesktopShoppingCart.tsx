@@ -14,6 +14,9 @@ export const DesktopShoppingCart = () => {
   const [cartItem, setCartItem] = useState<any>([]);
   const [item, setTotalItem] = useState(0);
 
+  let price = 0;
+  let mrp = 0;
+
   const showCartData = async () => {
     setLoading(true);
     const cartItem = await getData("cart");
@@ -45,6 +48,8 @@ export const DesktopShoppingCart = () => {
                     <Loading />
                   ) : (
                     cartItem.map((product, index) => {
+                      price += Number(product.price);
+                      mrp += Number(product.mrp);
                       return (
                         <DesktopCartSeperateItem
                           product={product}
@@ -69,11 +74,11 @@ export const DesktopShoppingCart = () => {
                   <div className="price">
                     <div className="details">
                       <h4>Price</h4>
-                      <h4>1500</h4>
+                      <h4>&#8377;{mrp}</h4>
                     </div>
-                    <div className="details">
-                      <h4>Price</h4>
-                      <h4>1500</h4>
+                    <div className="details delivery">
+                      <h4>Discount</h4>
+                      <h4>- &#8377;{mrp - price}</h4>
                     </div>
                     <div className="details delivery">
                       <h4>Delivery Charges</h4>
@@ -81,7 +86,7 @@ export const DesktopShoppingCart = () => {
                     </div>
                     <div className="totalPrice">
                       <h4>Total Amount</h4>
-                      <h4>1500</h4>
+                      <h4>&#8377;{price}</h4>
                     </div>
                   </div>
                 </div>
