@@ -67,7 +67,7 @@ export const DesktopDetailProductPage = (props) => {
           name: productInfo.name,
           category: productInfo.category,
           price: productInfo.price,
-          mrp: productInfo.mrp
+          mrp: productInfo.mrp,
         });
         await storeData("cart", previousCartItem);
         message.success("Product Added to Cart");
