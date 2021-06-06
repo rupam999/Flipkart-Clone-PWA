@@ -187,7 +187,7 @@ const DesktopTopNavbar = (props) => {
                 <img
                   src={LOGO}
                   className="desktopLogo"
-                  // onClick={() => history.push('/')}
+                  onClick={() => history.push('/home')}
                   alt="LOGO"
                 />
               </Col>
@@ -230,7 +230,7 @@ const DesktopTopNavbar = (props) => {
               <Col span={2} className="centerStyle">
                 <span
                   className="shoppingCart"
-                  onClick={() => history.push("desktopCart")}
+                  onClick={() => history.push("/DesktopCart")}
                 >
                   <ShoppingCartOutlined />
                   <span className="cartText">&nbsp;Cart</span>
