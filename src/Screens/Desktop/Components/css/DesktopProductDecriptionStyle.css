@@ -1,15 +1,16 @@
 .productDetailsSec .productDescription {
-  width: 100%;
-  margin-top: 25px;
+	width: 100%;
+	margin-top: 25px;
 }
 
 .productDetailsSec .productDescription .description {
-  color: #878787;
-  width: 110px;
-  padding-right: 10px;
-  font-weight: 700;
+	color: #878787;
+	width: 110px;
+	padding-right: 10px;
+	font-weight: 700;
 }
 
 .productDetailsSec .productDescription .actualDescription {
-  color: #212121;
+	color: #212121;
+	text-align: left;
 }
