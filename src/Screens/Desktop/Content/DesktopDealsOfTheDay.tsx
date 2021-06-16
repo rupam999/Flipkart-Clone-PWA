@@ -23,7 +23,8 @@ export const DesktopDealsOfTheDay = () => {
 				setSearchData('Deals of The Day');
 			}
 		} catch (error) {
-			console.log('error', error);
+			// console.log('error', error);
+			history.push('/DealsOfTheDay');
 		}
 	};
 
