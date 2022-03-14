@@ -1,0 +1,38 @@
+.DesktopPayment {
+  margin: 10px 15px;
+}
+
+.DesktopPayment .summaryOfPayment {
+  margin-left: 15px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+}
+
+.DesktopPayment .summaryOfPayment .heading {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.DesktopPayment .summaryOfPayment .heading h2 {
+  display: block;
+  text-transform: uppercase;
+  padding: 13px 13px 5px 13px;
+  font-weight: 500;
+  color: #878787;
+  font-size: 16px;
+}
+
+.DesktopPayment .summaryOfPayment .priceSection {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.DesktopPayment .summaryOfPayment .borderBottom {
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.DesktopPayment .summaryOfPayment .bold h3 {
+  font-weight: 700;
+}
+
+/*  */

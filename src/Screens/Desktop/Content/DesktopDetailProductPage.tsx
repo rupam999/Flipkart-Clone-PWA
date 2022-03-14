@@ -71,8 +71,8 @@ export const DesktopDetailProductPage = (props) => {
           mrp: productInfo.mrp,
         });
         await storeData("cart", previousCartItem);
-        if(redirect) {
-          history.push('/DesktopCart');
+        if (redirect) {
+          history.push("/DesktopCart");
         } else {
           message.success("Product Added to Cart");
         }
@@ -113,10 +113,10 @@ export const DesktopDetailProductPage = (props) => {
                     >
                       <ShoppingCartOutlined /> Add to Cart
                     </Button>
-                    <Button 
+                    <Button
                       className="btn buyNow"
                       onClick={() => addItemToCart(product, true)}
-                      >
+                    >
                       <SendOutlined />
                       Buy Now
                     </Button>

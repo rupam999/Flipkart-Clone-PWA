@@ -6,6 +6,7 @@ export const LOGIN = "/api/user/login";
 export const REGISTER = "/api/user/register";
 export const GET_PRODUCT = "/api/product/find";
 export const GET_SEPERATE_PRODUCT = "/api/product/seperate";
+export const GET_PAYMENT_DETAILS = "/api/payment/getDetails";
 
 export const GET_CATEGORIES = "/api/categories";
 export const SEND_OTP = "/api/user/sendOTP";
